@@ -18,9 +18,9 @@
   --border:      #E4DBCC;
   --border-soft: #EFE8DA;
 
-  /* Type */
-  --f-display: 'Fraunces', Georgia, 'Times New Roman', serif;
-  --f-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Type — matches orchidinitiative.com (Jost is the open-source Futura revival; swap to Futura LT if licensed) */
+  --f-display: 'Jost', 'Futura', 'Futura LT', 'Helvetica Neue', Helvetica, sans-serif;
+  --f-body:    'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --f-mono:    'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
 
   /* Scale */
@@ -66,11 +66,10 @@ a { color: inherit; text-decoration: none; }
    ------------------------------------------------------------ */
 h1, h2, h3, h4 {
   font-family: var(--f-display);
-  font-weight: 400;
+  font-weight: 500;
   color: var(--ink);
   margin: 0 0 0.5em;
-  letter-spacing: -0.01em;
-  font-variation-settings: "SOFT" 50, "WONK" 0;  /* Fraunces opsz */
+  letter-spacing: -0.005em;
 }
 h1 {
   font-size: clamp(2.5rem, 6vw, var(--fs-4xl));
