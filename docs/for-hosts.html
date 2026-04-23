@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For hosts — Orchid Internship Program</title>
+<meta name="description" content="Host a meaningful project for 30 minutes a week. Orchid handles scoping, matching, tooling, and communication scaffolding so your time is spent on the work, not the logistics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <svg class="logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path d="M16 4C12 8 12 12 14 16C10 14 6 16 6 20C10 22 14 20 16 18C18 20 22 22 26 20C26 16 22 14 18 16C20 12 20 8 16 4Z" fill="currentColor" opacity="0.85"/>
+        <path d="M16 18V28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 26C14 25 16 26 16 28" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+        <path d="M20 26C18 25 16 26 16 28" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+      </svg>
+      <span>Orchid</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="for-hosts.html" class="is-active">For hosts</a></li>
+        <li><a href="for-interns.html">For interns</a></li>
+        <li><a href="setup.html">Setup guide</a></li>
+        <li><a href="projects.html" class="hide-mobile">Open projects</a></li>
+        <li><a href="for-interns.html#apply" class="btn btn--secondary">Apply</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__inner">
+        <span class="eyebrow">For hosts</span>
+        <h1>Meaningful work, shipped in a summer &mdash; for thirty minutes of your time a&nbsp;week.</h1>
+        <p class="lede">You have a project that would genuinely move if someone owned it for a summer. You don't have the bandwidth to onboard, scope, and supervise a traditional intern. Orchid is designed around exactly that gap.</p>
+        <div class="btn-group">
+          <a href="#host" class="btn btn--primary arrow">Start a Problem Brief</a>
+          <a href="#what-we-handle" class="btn btn--secondary">How it works for you</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Who this is for</span>
+        <h2>If you're any of these, we can probably help.</h2>
+      </div>
+      <div class="grid grid--3">
+        <div class="card">
+          <h3>Small non-profits</h3>
+          <p class="quiet">You need a working tool, a cleaned dataset, or a bit of infrastructure that full-time staff can't prioritize.</p>
+        </div>
+        <div class="card">
+          <h3>Academic researchers</h3>
+          <p class="quiet">You have an interesting problem that would benefit from a summer of focused student effort — instrumentation, data pipelines, replication, visualization.</p>
+        </div>
+        <div class="card">
+          <h3>Early-stage founders</h3>
+          <p class="quiet">You're pre-seed or bootstrapping and need a defined feature or exploration done, with an intern who isn't going to ghost you in week three.</p>
+        </div>
+        <div class="card">
+          <h3>Technical teams in non-tech orgs</h3>
+          <p class="quiet">You're the one person who codes inside a museum, a food bank, or a school district. You need help. You don't have a team to loan one out.</p>
+        </div>
+        <div class="card">
+          <h3>Independent researchers</h3>
+          <p class="quiet">You're an engineer or scientist working on a personal project and would value a collaborator — someone to help build, benchmark, write up, or argue with.</p>
+        </div>
+        <div class="card">
+          <h3>Open-source maintainers</h3>
+          <p class="quiet">You have a backlog of issues that need a dedicated summer of attention. You'd like a mentored contributor rather than a drive-by PR.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- YOUR COMMITMENT -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Your commitment</span>
+        <h2>Designed around the time you actually have.</h2>
+        <p class="lede">We ask for roughly <strong>30 minutes a week</strong> during the summer, plus three longer touchpoints. Most hosts spend less once the rhythm is set.</p>
+      </div>
+
+      <ol class="steps">
+        <li>
+          <div>
+            <h3>One 30-minute intake</h3>
+            <p>You fill out a Problem Brief (~20 min) and we'll follow up with a 30-minute conversation to sharpen it. This is the most important hour of the program — a clear brief is the single biggest predictor of a strong summer.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>One 30-minute Week-1 kickoff</h3>
+            <p>You meet your matched intern, walk them through context, and answer questions. We'll send you a pre-generated agenda drafted from your brief and their profile.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Weekly digest — read in 3 minutes</h3>
+            <p>Every Friday you get a short email: what shipped this week, what's planned for next, blockers needing your input, open questions. Drafted by Claude from the week's journal and commits, edited by the intern before send.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>PR reviews on your schedule</h3>
+            <p>Major work lands as pull requests. You can review asynchronously at your pace. Typical commitment: 2–3 PR reviews per week, ~5 minutes each.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Two longer check-ins</h3>
+            <p>A mid-program review (~45 min) and a final wrap-up (~60 min). We provide the templates; you bring the feedback.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- WHAT WE HANDLE -->
+  <section class="section" id="what-we-handle">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">What Orchid handles</span>
+        <h2>The scaffolding that traditionally eats your time.</h2>
+      </div>
+      <div class="grid grid--2">
+        <div>
+          <div class="stack-lg">
+            <div>
+              <h3>Scoping support</h3>
+              <p class="quiet">We help you turn a fuzzy "it would be nice if…" into a Problem Brief with observable acceptance criteria, named non-goals, and a realistic time budget. Scope drift is the top cause of intern-project failure; the brief is the antidote.</p>
+            </div>
+            <div>
+              <h3>Intern matching</h3>
+              <p class="quiet">Every applicant fills out a calibration profile — coding experience, AI-tool fluency, learning goals, communication style. We match for fit, not just availability.</p>
+            </div>
+            <div>
+              <h3>Tooling setup</h3>
+              <p class="quiet">Matched pairs get a pre-configured repo, a CLAUDE.md tuned to your project, a journaling vault, git safeguards, and a weekly digest pipeline. Day 1 is the work, not the install logs.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="stack-lg">
+            <div>
+              <h3>Communication scaffolding</h3>
+              <p class="quiet">Interns journal daily. Weekly sponsor digests are drafted automatically and reviewed before send. 1:1 agendas come pre-populated from the week's work. A stuck protocol keeps interns from paging you with half-formed questions.</p>
+            </div>
+            <div>
+              <h3>Mid-program check-in</h3>
+              <p class="quiet">We run a structured halfway review to catch scope, fit, or pace issues before they become end-of-summer regrets. You get a template; we moderate if useful.</p>
+            </div>
+            <div>
+              <h3>Final wrap-up</h3>
+              <p class="quiet">We help you author a reference letter (drafted from the journal, edited by you) and a public project writeup if the work is open. Interns leave with a portfolio piece that reflects what they actually built.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL -->
+  <section class="section section--alt">
+    <div class="container">
+      <blockquote class="pull">
+        The synergy is turning any normal intern into an excellent, organized communicator &mdash; and letting hosts give material guidance in minutes, not hours.
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">The process</span>
+        <h2>From brief to summer end.</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <div>
+            <h3>Submit a Problem Brief</h3>
+            <p>Use the Host Problem Brief form. About 20 minutes of focused writing. We'll read it within a week and schedule a sharpening call.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>We sharpen and publish</h3>
+            <p>After the call, we'll refine the brief and post it to the open projects board. Qualified interns browse and indicate interest.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>We match and introduce</h3>
+            <p>We review interested interns against your brief and recommend a match. You have a final say — if the fit isn't right, we find another.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Summer runs</h3>
+            <p>Kickoff in week one, weekly digests, PR reviews, mid-program check-in, final wrap. Your time stays bounded; the intern's learning stays central.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Questions we get</span>
+        <h2>A few honest answers.</h2>
+      </div>
+      <div class="grid grid--2">
+        <div>
+          <h3>Who owns the IP?</h3>
+          <p class="quiet">You do, unless you choose otherwise. You specify repo visibility and IP terms in the Problem Brief. Public-by-default is common for research and open-source projects; private is common for product work. We don't take ownership stakes.</p>
+        </div>
+        <div>
+          <h3>What if the project isn't a fit?</h3>
+          <p class="quiet">Mid-program check-ins exist precisely to catch this. In rare cases we help rescope or — if truly unrecoverable — part ways with dignity on both sides. The intern keeps what they built; you keep your time.</p>
+        </div>
+        <div>
+          <h3>Is there a fee?</h3>
+          <p class="quiet">No. Orchid is a program of the Orchid Initiative, a 501(c)(3). We welcome donations that help us expand the cohort.</p>
+        </div>
+        <div>
+          <h3>Are interns paid?</h3>
+          <p class="quiet">The program matches interns to projects; compensation is between the host and the intern. Many projects are unpaid; others are modest stipends. We're direct with applicants about expectations so the match is honest on both sides.</p>
+        </div>
+        <div>
+          <h3>What AI tools do interns use?</h3>
+          <p class="quiet">The workflow is built around Claude Code. Your repo includes a CLAUDE.md tuned to your project, which calibrates Claude's behavior — explanation depth, verification discipline, safeguards on sensitive code paths.</p>
+        </div>
+        <div>
+          <h3>Does that mean the intern is really just Claude?</h3>
+          <p class="quiet">No. The program enforces a <em>teach-back</em> rule: interns can't merge code they can't explain. Claude is a collaborator, not a substitute. The goal is to raise the floor of what a motivated student can ship in a summer, not to automate the student out.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band" id="host">
+    <div class="container">
+      <h2>Ready to host?</h2>
+      <p class="lede">The Problem Brief takes about 20 minutes of focused thinking. We'll take it from there.</p>
+      <div class="btn-group" style="justify-content: center;">
+        <a href="https://github.com/orchid-initiative/Internships/issues/new?template=host-problem-brief.yml" class="btn btn--primary arrow">Submit a Problem Brief</a>
+        <a href="mailto:hello@orchid-initiative.com" class="btn btn--secondary">Or email us first</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <span>&copy; 2026 Orchid Initiative · A sister program of the Orchid Initiative.</span>
+    <div>
+      <a href="https://github.com/orchid-initiative">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:hello@orchid-initiative.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.querySelector('.site-header');
+  const toggle = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+</script>
+
+</body>
+</html>

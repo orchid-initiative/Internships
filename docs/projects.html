@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open projects — Orchid Internship Program</title>
+<meta name="description" content="Browse open project briefs from hosts. Real problems, scoped for a summer, with communication scaffolding baked in.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .project-filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  .filter-pill {
+    font-family: var(--f-body);
+    font-size: var(--fs-xs);
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all 150ms var(--ease);
+  }
+  .filter-pill:hover { border-color: var(--ink-soft); color: var(--ink); }
+  .filter-pill.is-active {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
+  }
+
+  .project-card {
+    display: block;
+    background: var(--bg);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem 2rem;
+    transition: all 200ms var(--ease);
+    text-decoration: none;
+    color: inherit;
+  }
+  .project-card:hover {
+    border-color: var(--border);
+    transform: translateY(-2px);
+  }
+  .project-card__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: var(--fs-xs);
+    color: var(--ink-muted);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .project-card__host { color: var(--accent-deep); font-weight: 500; letter-spacing: 0; text-transform: none; }
+  .project-card h3 {
+    font-size: var(--fs-lg);
+    margin-bottom: 0.65rem;
+  }
+  .project-card p {
+    color: var(--ink-soft);
+    font-size: var(--fs-sm);
+    margin-bottom: 1rem;
+  }
+  .project-card__labels {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+  }
+  .project-card__label {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    font-weight: 500;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-lg);
+    color: var(--ink-soft);
+  }
+  .empty-state h3 { font-family: var(--f-display); margin-bottom: 0.5rem; color: var(--ink); }
+
+  .loading {
+    text-align: center;
+    padding: 4rem 0;
+    color: var(--ink-muted);
+    font-size: var(--fs-sm);
+  }
+  .loading::after {
+    content: "";
+    display: inline-block;
+    margin-left: 0.5rem;
+    width: 8px;
+    height: 8px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    vertical-align: middle;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <svg class="logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path d="M16 4C12 8 12 12 14 16C10 14 6 16 6 20C10 22 14 20 16 18C18 20 22 22 26 20C26 16 22 14 18 16C20 12 20 8 16 4Z" fill="currentColor" opacity="0.85"/>
+        <path d="M16 18V28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 26C14 25 16 26 16 28" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+        <path d="M20 26C18 25 16 26 16 28" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+      </svg>
+      <span>Orchid</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="for-hosts.html">For hosts</a></li>
+        <li><a href="for-interns.html">For interns</a></li>
+        <li><a href="setup.html">Setup guide</a></li>
+        <li><a href="projects.html" class="is-active hide-mobile">Open projects</a></li>
+        <li><a href="for-interns.html#apply" class="btn btn--secondary">Apply</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" style="padding-bottom: 3rem;">
+    <div class="container">
+      <div class="hero__inner">
+        <span class="eyebrow">Open project briefs</span>
+        <h1>Real problems, scoped for a summer.</h1>
+        <p class="lede">Each brief is a commitment on both sides: a host who's written down what "done" looks like, and an intern willing to own it from Day 1 to delivery. Browse, bookmark, and indicate interest when you apply.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS GRID -->
+  <section class="section" style="padding-top: 1rem;">
+    <div class="container">
+
+      <div class="project-filters" id="filters">
+        <button class="filter-pill is-active" data-filter="all">All projects</button>
+        <button class="filter-pill" data-filter="status:open">Open</button>
+        <button class="filter-pill" data-filter="status:matched">Matched</button>
+      </div>
+
+      <div id="projects-container">
+        <div class="loading">Loading open projects</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <div class="container">
+      <h2>Don't see a fit?</h2>
+      <p class="lede">If you have a project you'd like to host &mdash; or a specific kind of problem you'd like to work on as an intern &mdash; we'd love to hear from you.</p>
+      <div class="btn-group" style="justify-content: center;">
+        <a href="for-hosts.html#host" class="btn btn--primary arrow">Host a project</a>
+        <a href="for-interns.html#apply" class="btn btn--secondary">Apply as an intern</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <span>&copy; 2026 Orchid Initiative · A sister program of the Orchid Initiative.</span>
+    <div>
+      <a href="https://github.com/orchid-initiative">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:hello@orchid-initiative.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav shadow on scroll
+  const header = document.querySelector('.site-header');
+  const toggleShadow = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
+  window.addEventListener('scroll', toggleShadow, { passive: true });
+  toggleShadow();
+
+  // ---- Project listing ---------------------------------------------------
+  // Fetches open issues labeled `project-brief` from the program repo and
+  // renders them as cards. Unauthenticated GitHub API: 60 requests/hour
+  // per IP, which is plenty for a visitor-facing page.
+  const REPO = 'orchid-initiative/Internships';
+  const BRIEF_LABEL = 'project-brief';
+  const container = document.getElementById('projects-container');
+  const filters = document.getElementById('filters');
+
+  let allProjects = [];
+  let activeFilter = 'all';
+
+  async function loadProjects() {
+    try {
+      const url = `https://api.github.com/repos/${REPO}/issues?labels=${BRIEF_LABEL}&state=open&per_page=50`;
+      const res = await fetch(url, { headers: { 'Accept': 'application/vnd.github+json' } });
+
+      if (res.status === 403) {
+        renderError('GitHub API rate limit reached. Try again in an hour, or visit the repo directly.');
+        return;
+      }
+      if (!res.ok) {
+        renderError(`Couldn't load projects (status ${res.status}). Visit the repo directly in the meantime.`);
+        return;
+      }
+
+      const issues = await res.json();
+      allProjects = issues.filter(i => !i.pull_request);
+      render();
+    } catch (err) {
+      renderError('Network error loading projects. Check your connection, or visit the repo directly.');
+    }
+  }
+
+  function excerpt(body, length = 180) {
+    if (!body) return '';
+    // Strip markdown headers, HTML comments, issue form headers (###)
+    const stripped = body
+      .replace(/<!--[\s\S]*?-->/g, '')
+      .replace(/^#{1,6}\s+.*$/gm, '')
+      .replace(/\*\*(.*?)\*\*/g, '$1')
+      .replace(/\r?\n+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+    return stripped.length > length ? stripped.slice(0, length).trim() + '…' : stripped;
+  }
+
+  function render() {
+    const matches = activeFilter === 'all'
+      ? allProjects
+      : allProjects.filter(p => p.labels.some(l => l.name === activeFilter));
+
+    if (matches.length === 0) {
+      container.innerHTML = `
+        <div class="empty-state">
+          <h3>No open briefs yet.</h3>
+          <p>Hosts post projects here. When one matches your filter, it'll appear in this space. Check back soon, or <a href="for-hosts.html">host one yourself</a>.</p>
+        </div>`;
+      return;
+    }
+
+    container.innerHTML = `
+      <div class="grid grid--2">
+        ${matches.map(renderCard).join('')}
+      </div>`;
+  }
+
+  function renderCard(p) {
+    const labels = p.labels
+      .filter(l => l.name !== BRIEF_LABEL)
+      .map(l => `<span class="project-card__label">${escapeHtml(l.name)}</span>`)
+      .join('');
+    return `
+      <a class="project-card" href="${p.html_url}" target="_blank" rel="noopener">
+        <div class="project-card__meta">
+          <span class="project-card__host">${escapeHtml(p.user.login)}</span>
+          <span>·</span>
+          <span>${new Date(p.created_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}</span>
+        </div>
+        <h3>${escapeHtml(p.title)}</h3>
+        <p>${escapeHtml(excerpt(p.body))}</p>
+        <div class="project-card__labels">${labels}</div>
+      </a>`;
+  }
+
+  function renderError(msg) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <h3>Couldn't load live projects.</h3>
+        <p>${escapeHtml(msg)}</p>
+        <p><a href="https://github.com/${REPO}/issues?q=is%3Aissue+is%3Aopen+label%3A${BRIEF_LABEL}" target="_blank" rel="noopener">View open briefs on GitHub →</a></p>
+      </div>`;
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, m => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[m]));
+  }
+
+  // Filter click handler
+  filters.addEventListener('click', (e) => {
+    if (!e.target.classList.contains('filter-pill')) return;
+    filters.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('is-active'));
+    e.target.classList.add('is-active');
+    activeFilter = e.target.dataset.filter;
+    render();
+  });
+
+  loadProjects();
+</script>
+
+</body>
+</html>

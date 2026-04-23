@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Setup Guide — Orchid Internship Program</title>
+<meta name="description" content="Install Claude Code, clone your pair repo, and run your first session — from zero to working workspace in under an hour.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <svg class="logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path d="M16 4C12 8 12 12 14 16C10 14 6 16 6 20C10 22 14 20 16 18C18 20 22 22 26 20C26 16 22 14 18 16C20 12 20 8 16 4Z" fill="currentColor" opacity="0.85"/>
+        <path d="M16 18V28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 26C14 25 16 26 16 28" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+        <path d="M20 26C18 25 16 26 16 28" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+      </svg>
+      <span>Orchid</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="for-hosts.html">For hosts</a></li>
+        <li><a href="for-interns.html">For interns</a></li>
+        <li><a href="setup.html" class="is-active">Setup guide</a></li>
+        <li><a href="projects.html" class="hide-mobile">Open projects</a></li>
+        <li><a href="for-interns.html#apply" class="btn btn--secondary">Apply</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" style="padding-bottom: 2rem;">
+    <div class="container">
+      <div class="hero__inner">
+        <span class="eyebrow">Setup guide</span>
+        <h1>From zero to a working&nbsp;workspace.</h1>
+        <p class="lede">This guide takes you from no installed tools to a live Claude Code session inside your project repo. Budget 45–60 minutes the first time through. Work through it in order — later steps assume earlier ones worked.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDE LAYOUT -->
+  <section class="container">
+    <div class="guide-layout">
+
+      <!-- TOC -->
+      <aside class="toc" aria-label="Guide contents">
+        <p class="toc__title">On this page</p>
+        <ul>
+          <li><a href="#before-you-start">Before you start</a></li>
+          <li><a href="#1-install-claude-code">1 · Install Claude Code</a></li>
+          <li><a href="#2-github-setup">2 · GitHub setup</a></li>
+          <li><a href="#3-clone-template">3 · Clone the template</a></li>
+          <li><a href="#4-first-session">4 · Your first session</a></li>
+          <li><a href="#5-obsidian">5 · Obsidian vault</a></li>
+          <li><a href="#6-verify">6 · Verify everything</a></li>
+          <li><a href="#linux-notes">Linux tips</a></li>
+          <li><a href="#troubleshooting">Troubleshooting</a></li>
+          <li><a href="#getting-help">Getting help</a></li>
+        </ul>
+      </aside>
+
+      <!-- BODY -->
+      <article class="guide-body">
+
+        <h2 id="before-you-start">Before you start</h2>
+        <p>You'll need three things ready:</p>
+        <ul>
+          <li>A computer you can install software on (laptop or desktop). Mac, Windows (with WSL), or Linux all work. Chromebooks need GitHub Codespaces — ask us.</li>
+          <li>A <strong>GitHub account</strong> using the email you applied with.</li>
+          <li>A <strong>Claude account</strong> (claude.ai). The program covers a Claude Code plan — we'll send credentials after matching.</li>
+        </ul>
+        <div class="callout">
+          <strong>Not matched yet?</strong>
+          You can still read this guide to get a feel for what the program's tooling looks like. The actual installation steps need your pair repo, which we create on match day.
+        </div>
+
+        <h2 id="1-install-claude-code">1 · Install Claude Code</h2>
+        <p>Claude Code is the terminal-based AI pair-programmer that anchors the Orchid workflow. It lives in your project repo and reads <code>CLAUDE.md</code> at session start to calibrate to you.</p>
+
+        <h3>On macOS or Linux</h3>
+        <p>Open a terminal and run:</p>
+<pre><code>curl -fsSL https://claude.ai/install.sh | bash</code></pre>
+        <p>Then authenticate:</p>
+<pre><code>claude login</code></pre>
+        <p>Follow the browser prompt. When it returns you to the terminal, you're in.</p>
+
+        <h3>On Windows (WSL)</h3>
+        <p>Claude Code runs inside the Windows Subsystem for Linux. If you don't have WSL yet:</p>
+<pre><code>wsl --install</code></pre>
+        <p>Restart, open Ubuntu from the Start menu, then run the macOS/Linux steps above from inside the Ubuntu terminal.</p>
+
+        <h3>Verify the install</h3>
+<pre><code>claude --version</code></pre>
+        <p>You should see a version number. If not, jump to <a href="#troubleshooting">Troubleshooting</a>.</p>
+
+        <h2 id="2-github-setup">2 · GitHub setup</h2>
+        <p>You need the GitHub CLI (<code>gh</code>) to work with your pair repo without fighting HTTPS tokens. Install it and authenticate:</p>
+
+        <h3>macOS</h3>
+<pre><code>brew install gh
+gh auth login</code></pre>
+
+        <h3>Linux / WSL</h3>
+<pre><code>sudo apt update
+sudo apt install gh
+gh auth login</code></pre>
+
+        <p>When <code>gh auth login</code> prompts you, pick <em>GitHub.com</em> → <em>HTTPS</em> → <em>Login with a web browser</em>. Paste the one-time code it gives you into the browser window.</p>
+
+        <div class="callout callout--sage">
+          <strong>One-time git identity.</strong>
+          If git asks for your name/email on your first commit, set them:
+<pre style="margin-top: 0.75rem; margin-bottom: 0;"><code>git config --global user.name "Your Name"
+git config --global user.email "you@example.com"</code></pre>
+        </div>
+
+        <h2 id="3-clone-template">3 · Clone your pair repo</h2>
+        <p>When you're matched, Orchid creates a private repo for your pair from the intern template. It'll be named something like <code>pair-jdoe-acme-2026</code>. You'll get an email invite and the repo URL.</p>
+
+        <p>Pick a folder to work in — we suggest <code>~/OrchidWork</code> — then clone:</p>
+<pre><code>mkdir -p ~/OrchidWork
+cd ~/OrchidWork
+gh repo clone orchid-initiative/pair-jdoe-acme-2026
+cd pair-jdoe-acme-2026</code></pre>
+
+        <p>The repo comes pre-loaded with:</p>
+        <ul>
+          <li><code>CLAUDE.md</code> — your session guardrails, already filled in with your project and communication preferences.</li>
+          <li><code>02-Work/problem-brief.md</code> — the locked scope from your host.</li>
+          <li><code>.github/pull_request_template.md</code> — the PR structure we expect.</li>
+          <li>Pre-configured <code>.gitignore</code>, pre-commit hooks, and a <code>README.md</code> with project-specific notes.</li>
+        </ul>
+
+        <h2 id="4-first-session">4 · Your first Claude Code session</h2>
+        <p>From inside the repo:</p>
+<pre><code>claude</code></pre>
+        <p>That's it. Claude Code will read <code>CLAUDE.md</code> automatically and address you by name.</p>
+
+        <p>Your first session has one goal: <strong>understand the Problem Brief</strong>. Try this opener:</p>
+
+        <div class="callout">
+          <strong>Say to Claude:</strong>
+          "Let's start by reading the Problem Brief together. Walk me through it section by section, flag anything that seems ambiguous, and list the three questions I should bring to my first sync with my host."
+        </div>
+
+        <p>Don't write code yet. Don't ask for a plan yet. The first session is about loading context, identifying unknowns, and drafting smart questions. Your end-of-day journal should capture what you learned and what's still unclear.</p>
+
+        <h2 id="5-obsidian">5 · Obsidian vault</h2>
+        <p><a href="https://obsidian.md" target="_blank" rel="noopener">Obsidian</a> is a free note-taking app we use for journaling and long-form writing. Your pair repo includes a starter vault at <code>vault/</code> — open it in Obsidian once:</p>
+
+        <ol>
+          <li>Download and install Obsidian from <a href="https://obsidian.md" target="_blank" rel="noopener">obsidian.md</a>.</li>
+          <li>On first launch, click <em>Open folder as vault</em>.</li>
+          <li>Point it at <code>~/OrchidWork/pair-jdoe-acme-2026/vault/</code>.</li>
+        </ol>
+
+        <p>The vault is organized into <code>01-Journal</code>, <code>02-Work</code>, <code>03-Comms</code>, and so on — see <code>CLAUDE.md</code> for the full layout. <strong>The journal folder is private</strong>; it stays out of the shared repo. The other folders sync via git like the rest of the codebase.</p>
+
+        <h2 id="6-verify">6 · Verify everything works</h2>
+        <p>Run through this checklist before your first 1:1 with your host:</p>
+        <ul>
+          <li><code>claude --version</code> returns a version number.</li>
+          <li><code>gh auth status</code> shows you're logged in.</li>
+          <li>You can <code>cd</code> into your pair repo and run <code>git status</code> cleanly.</li>
+          <li>Obsidian opens your vault folder without errors.</li>
+          <li>You've made one trivial commit — for example, adding your name to <code>README.md</code> — pushed to a feature branch, and opened a PR. Self-review it, then merge it.</li>
+          <li>Today's journal entry exists at <code>vault/01-Journal/YYYY-MM-DD.md</code> with at least three lines of reflection on the Problem Brief.</li>
+        </ul>
+
+        <p>If all six check, you're set. If any of them don't, read on.</p>
+
+        <h2 id="linux-notes">Linux tips (if this is new for you)</h2>
+        <p>You don't need to become a Linux expert for this program, but a handful of commands will carry you through the summer. Claude Code can explain any of these — ask it.</p>
+
+        <ul>
+          <li><code>pwd</code> — where am I right now?</li>
+          <li><code>ls</code> — what's in this folder?</li>
+          <li><code>cd foldername</code> — move into a folder. <code>cd ..</code> moves up one.</li>
+          <li><code>cat file.md</code> — print a file to the terminal.</li>
+          <li><code>mkdir newfolder</code> — create a folder.</li>
+          <li><code>mv old new</code> / <code>cp src dst</code> / <code>rm file</code> — move, copy, delete. Be careful with <code>rm</code>; it doesn't go to a trash can.</li>
+        </ul>
+
+        <div class="callout">
+          <strong>Rule of thumb.</strong>
+          If a terminal command would delete, overwrite, or reach outside your current folder, ask Claude to explain what it does before running it. This is in the <code>CLAUDE.md</code> for a reason.
+        </div>
+
+        <h2 id="troubleshooting">Troubleshooting</h2>
+
+        <h3><code>claude: command not found</code></h3>
+        <p>The install script finished but your shell doesn't see the binary. Run <code>source ~/.bashrc</code> (or <code>~/.zshrc</code> on recent macOS) to reload your shell, then try again. Still stuck? Close the terminal completely and open a fresh one.</p>
+
+        <h3><code>gh auth login</code> won't open a browser</h3>
+        <p>Happens most often on WSL. Pick the <em>Login with a token</em> option instead, then follow the link it prints to create a Personal Access Token with the scopes it lists.</p>
+
+        <h3>Claude Code won't start — authentication errors</h3>
+        <p>Run <code>claude logout</code> then <code>claude login</code> again. Make sure you're signed into the account that matches the email we sent your credentials to.</p>
+
+        <h3>Git pre-commit hooks block my commit</h3>
+        <p>This is intentional — the hook caught something (usually a secret pattern, a giant file, or a formatting issue). Read the hook's output, fix the cause, stage again, and re-commit. <strong>Never</strong> bypass with <code>--no-verify</code> without explicitly asking your host first.</p>
+
+        <h3>Obsidian can't find my vault</h3>
+        <p>You pointed it at the repo root instead of the <code>vault/</code> subfolder. Close it, reopen, and choose <em>Open folder as vault</em> pointed at the subfolder.</p>
+
+        <h2 id="getting-help">Getting help</h2>
+        <p>Stuck past the 30-minute mark? Run through the <strong>stuck protocol</strong> first — it's in your <code>CLAUDE.md</code>:</p>
+
+        <ol>
+          <li>Have I asked Claude, clearly and specifically?</li>
+          <li>Have I tried something concrete and documented what happened?</li>
+          <li>Do I have a specific question — not "it doesn't work" but <em>what I expected</em> vs. <em>what I got</em>?</li>
+        </ol>
+
+        <p>If all three pass and you're still stuck, post in the cohort Discord (invite goes out on match day) or email <a href="mailto:help@orchid-initiative.com">help@orchid-initiative.com</a>. For anything that blocks project work for more than a day, ping your host directly.</p>
+
+        <p class="quiet" style="margin-top: 3rem;">This guide is living. If something was unclear, outdated, or wrong when you worked through it — tell us, or edit it and send a PR. The next cohort will thank you.</p>
+
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <span>&copy; 2026 Orchid Initiative · A sister program of the Orchid Initiative.</span>
+    <div>
+      <a href="https://github.com/orchid-initiative">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:hello@orchid-initiative.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav shadow on scroll
+  const header = document.querySelector('.site-header');
+  const toggle = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+
+  // TOC active-section highlighting
+  const sections = document.querySelectorAll('.guide-body h2[id]');
+  const tocLinks = document.querySelectorAll('.toc a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        tocLinks.forEach(link => link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`));
+      }
+    });
+  }, { rootMargin: '-100px 0px -70% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
