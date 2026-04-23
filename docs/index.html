@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Orchid Internship Program — A starting point for students who don't have one yet.</title>
-<meta name="description" content="Orchid pairs college students with meaningful projects and an AI-first workflow that turns any intern into an excellent communicator.">
+<title>Orchid Initiative — We connect people with purpose.</title>
+<meta name="description" content="Orchid Initiative promotes volunteerism, community engagement, and skill development by pairing under-resourced ideas with unlikely collaborators.">
 <link rel="icon" type="image/avif" href="orchid.avif">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,17 +15,18 @@
 
 <header class="site-header">
   <div class="container nav">
-    <a href="index.html" class="logo" aria-label="Orchid Internship Program — home">
+    <a href="index.html" class="logo">
       <img class="logo-mark" src="orchid.avif" alt="Orchid" width="28" height="28" />
-      <span>Orchid</span>
+      <span>Orchid Initiative</span>
     </a>
     <nav>
       <ul class="nav-links">
-        <li><a href="for-hosts.html">For hosts</a></li>
-        <li><a href="for-interns.html">For interns</a></li>
-        <li><a href="setup.html">Setup guide</a></li>
-        <li><a href="projects.html" class="hide-mobile">Open projects</a></li>
-        <li><a href="for-interns.html#apply" class="btn btn--secondary">Apply</a></li>
+        <li><a href="https://www.orchidinitiative.com/s-projects">Projects</a></li>
+        <li><a href="internships/">Internships</a></li>
+        <li><a href="https://www.orchidinitiative.com/lifeaftercaltechpodcast" class="hide-mobile">Podcast</a></li>
+        <li><a href="https://www.orchidinitiative.com/about-us">About</a></li>
+        <li><a href="https://www.orchidinitiative.com/contact" class="hide-mobile">Contact</a></li>
+        <li><a href="https://givebutter.com/orchid-initiative-general-donations-7mqkid" class="btn btn--primary">Donate</a></li>
       </ul>
     </nav>
   </div>
@@ -36,124 +37,66 @@
   <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <div class="hero__inner">
-        <span class="eyebrow">Summer 2026 · Accepting matches now</span>
-        <h1>A starting point for&nbsp;students who don't&nbsp;have one yet.</h1>
-        <p class="lede">Orchid pairs college students with meaningful projects and a tightly-scaffolded AI-first workflow. Hosts get real help for minimal time. Interns get a serious summer, a finished portfolio piece, and a set of habits that outlast the program.</p>
-        <div class="btn-group">
-          <a href="for-interns.html#apply" class="btn btn--primary arrow">Apply as an intern</a>
-          <a href="for-hosts.html#host" class="btn btn--secondary arrow">Host a project</a>
-        </div>
+      <div class="hero__inner" style="max-width: 780px;">
+        <h1>We connect people with&nbsp;purpose.</h1>
+        <p class="lede">Orchid Initiative promotes volunteerism, community engagement, and skill development by pairing under-resourced ideas with unlikely collaborators.</p>
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
+  <!-- MISSION (exact paragraphs from the existing site) -->
   <section class="section section--alt">
     <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">How it works</span>
-        <h2>Three moves. One summer.</h2>
-        <p class="lede">We keep the admin thin so the work stays rich.</p>
+      <div style="max-width: 680px; margin: 0 auto;">
+        <p style="font-size: var(--fs-md); line-height: 1.55; color: var(--ink); margin-bottom: 1.5rem;">Our projects begin small &mdash; a spark, a seed, an idea that might otherwise fade. Like orchids that need a symbiotic partner to bloom, good ideas need the right connections to grow.</p>
+        <p style="font-size: var(--fs-md); line-height: 1.55; color: var(--ink);">Through mentorship, creative collaboration, and hands-on projects, we cultivate spaces where everyone &mdash; volunteers, students, and community members &mdash; can learn, build, and flourish together.</p>
       </div>
+    </div>
+  </section>
 
+  <!-- EXPLORE — wayfinding to existing site sections -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Explore</span>
+        <h2>Where to begin.</h2>
+      </div>
       <div class="grid grid--3">
-        <div class="card card--on-alt">
-          <span class="card__number">01</span>
-          <h3>Hosts post a brief</h3>
-          <p>A 30-minute structured intake turns a vague idea into a workable project — with a real goal, a real "done," and a real time budget on both sides.</p>
-        </div>
-        <div class="card card--on-alt">
-          <span class="card__number">02</span>
-          <h3>Interns apply</h3>
-          <p>Students fill out a calibration profile — experience, tools, learning goals, communication style — so we can match well instead of matching fast.</p>
-        </div>
-        <div class="card card--on-alt">
-          <span class="card__number">03</span>
-          <h3>Orchid seeds a workspace</h3>
-          <p>Matched pairs get a pre-configured repo, a CLAUDE.md tuned to the project, a journal vault, and a weekly digest pipeline. Day 1 is about the work, not the setup.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY AI -->
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Why AI-first</span>
-        <h2>Claude Code, not Claude-does-your-job.</h2>
-      </div>
-      <div class="grid grid--2">
-        <div>
-          <p>The workflow treats Claude Code as a patient, available collaborator — the kind of senior engineer every intern wishes they could ask dumb questions to. We pair it with a tight communication structure so the intern's learning stays central and the host's time stays protected.</p>
-          <p>Every session ends with a journal entry. Every week produces a digest drafted from commits and questions, reviewed by the intern, and sent to the host. When a decision comes up, we write it down in five bullets. When a blocker appears, the intern runs a stuck protocol before paging a human.</p>
-          <p>The result: a summer that produces both a shipped project and a set of habits — planning, verification, decision capture, async communication — that travel with the intern into every future role.</p>
-        </div>
-        <div>
-          <blockquote class="pull">
-            The synergy is turning any normal intern into an excellent, organized communicator &mdash; and letting hosts give material guidance in minutes, not hours.
-          </blockquote>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PILLARS -->
-  <section class="section section--alt">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">What we build around</span>
-        <h2>Four pillars.</h2>
-      </div>
-      <div class="grid grid--2">
-        <div class="card card--on-alt">
-          <h3>Scoped problems</h3>
-          <p class="quiet">Every project opens with a locked Problem Brief: goal, non-goals, acceptance criteria, and a realistic time budget. Scope amendments require an explicit sponsor note — drift is the most common failure mode, and we refuse to let it be the default.</p>
-        </div>
-        <div class="card card--on-alt">
-          <h3>Honest communication</h3>
-          <p class="quiet">Weekly sponsor digests, written agendas for 1:1s, decision records for non-reversible choices, and a stuck protocol that forces clarity before escalation. Interns leave better writers than they arrived.</p>
-        </div>
-        <div class="card card--on-alt">
-          <h3>Disciplined tooling</h3>
-          <p class="quiet">Claude Code on a working Linux environment, a pre-configured repo with git safeguards, conventional commits with journal-queryable trailers, and an Obsidian vault for private reflection and shared artifacts.</p>
-        </div>
-        <div class="card card--on-alt">
-          <h3>Protected host time</h3>
-          <p class="quiet">We design for sponsors to spend <strong>30 minutes a week</strong> and still feel fully in the loop. The weekly digest, PR-based reviews, and pre-structured 1:1s carry the rest.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SPLIT CTA -->
-  <section class="section">
-    <div class="container">
-      <div class="split-cta">
-        <a class="split-cta__panel" href="for-hosts.html">
-          <span class="eyebrow">Organizations & researchers</span>
-          <h3>Host a project</h3>
-          <p class="quiet">You have a project that would genuinely move if someone owned it for a summer. Post a brief, we'll help you sharpen it, and we'll pair you with a student who fits.</p>
-          <p class="btn btn--ghost arrow">Start a Problem Brief</p>
+        <a class="card" href="https://www.orchidinitiative.com/s-projects" style="text-decoration: none; color: inherit;">
+          <h3>Projects <span class="quiet">&rarr;</span></h3>
+          <p class="quiet">Initiatives underway. Browse past and current collaborations.</p>
         </a>
-        <a class="split-cta__panel" href="for-interns.html">
-          <span class="eyebrow">College students</span>
-          <h3>Apply as an intern</h3>
-          <p class="quiet">You didn't land the traditional summer role — or you're looking for something more interesting than the ones on offer. Tell us about yourself and what you'd like to spend a summer on.</p>
-          <p class="btn btn--ghost arrow">Fill out a profile</p>
+        <a class="card" href="internships/" style="text-decoration: none; color: inherit;">
+          <h3>Internships <span class="quiet">&rarr;</span></h3>
+          <p class="quiet">A summer program matching college students with meaningful projects and an AI-first workflow.</p>
+        </a>
+        <a class="card" href="https://www.orchidinitiative.com/lifeaftercaltechpodcast" style="text-decoration: none; color: inherit;">
+          <h3>The Caltech Student Experience <span class="quiet">&rarr;</span></h3>
+          <p class="quiet">Our podcast on life after Caltech.</p>
+        </a>
+        <a class="card" href="https://www.orchidinitiative.com/volunteers" style="text-decoration: none; color: inherit;">
+          <h3>Volunteer <span class="quiet">&rarr;</span></h3>
+          <p class="quiet">Lend time, skills, or mentorship to a project underway.</p>
+        </a>
+        <a class="card" href="https://www.orchidinitiative.com/about-us" style="text-decoration: none; color: inherit;">
+          <h3>About <span class="quiet">&rarr;</span></h3>
+          <p class="quiet">Who we are and how we work.</p>
+        </a>
+        <a class="card" href="https://www.orchidinitiative.com/contact" style="text-decoration: none; color: inherit;">
+          <h3>Contact <span class="quiet">&rarr;</span></h3>
+          <p class="quiet">Get in touch. Volunteer, host, apply, or collaborate.</p>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- CTA BAND -->
+  <!-- DONATE -->
   <section class="cta-band">
     <div class="container">
-      <h2>New to Claude Code?</h2>
-      <p class="lede">The setup guide walks you from zero to a working workspace in under an hour. Read it before you apply or after you're matched — either works.</p>
+      <h2>Support the work.</h2>
+      <p class="lede">Orchid Initiative is a 501(c)(3) non-profit. Donations fund mentorship, tooling, and program expansion.</p>
       <div class="btn-group" style="justify-content: center;">
-        <a href="setup.html" class="btn btn--primary arrow">Read the setup guide</a>
+        <a href="https://givebutter.com/orchid-initiative-general-donations-7mqkid" class="btn btn--primary arrow">Donate via GiveButter</a>
       </div>
     </div>
   </section>
@@ -162,17 +105,20 @@
 
 <footer class="site-footer">
   <div class="container site-footer__inner">
-    <span>&copy; 2026 Orchid Initiative · A sister program of the Orchid Initiative.</span>
+    <span>&copy; 2026 Orchid Initiative.</span>
     <div>
       <a href="https://github.com/orchid-initiative">GitHub</a>
       &nbsp;·&nbsp;
-      <a href="mailto:hello@orchid-initiative.com">Contact</a>
+      <a href="http://rileeki.slack.com">Slack</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/company/91141234">LinkedIn</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.orchidinitiative.com/privacy-policy">Privacy</a>
     </div>
   </div>
 </footer>
 
 <script>
-  // Nav shadow on scroll
   const header = document.querySelector('.site-header');
   const toggle = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
   window.addEventListener('scroll', toggle, { passive: true });
