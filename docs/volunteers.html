@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volunteers — Orchid Initiative</title>
+<meta name="description" content="Volunteer with the Orchid Initiative as a collaborator, pollinator, or gardener — each role essential to nurturing ideas into impact.">
+<link rel="icon" type="image/avif" href="orchid.avif">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .role-card__image {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: var(--radius);
+    margin-bottom: 1.25rem;
+    background: var(--bg-deep);
+  }
+  .signup-form {
+    background: var(--bg);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .field {
+    display: block;
+    margin-bottom: 1.25rem;
+  }
+  .field label {
+    display: block;
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+  .field input, .field select, .field textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-family: var(--f-body);
+    font-size: var(--fs-base);
+    color: var(--ink);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color 150ms var(--ease);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+  .field textarea { min-height: 140px; resize: vertical; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 560px) { .field-row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <img class="logo-mark" src="orchid.avif" alt="Orchid" width="28" height="28" />
+      <span>Orchid Initiative</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="internships/">Internships</a></li>
+        <li><a href="podcast.html" class="hide-mobile">Podcast</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="hide-mobile">Contact</a></li>
+        <li><a href="https://givebutter.com/orchid-initiative-general-donations-7mqkid" class="btn btn--primary">Donate</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__inner">
+        <span class="eyebrow">Volunteers</span>
+        <h1>Every role matters.</h1>
+        <p class="lede">At the Orchid Initiative, volunteers with various roles work together in a collaborative environment to nurture ideas and drive impactful projects forward.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="section" style="padding-top: 1rem;">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Approach</span>
+      </div>
+      <p style="font-size: var(--fs-md); line-height: 1.6; max-width: 680px;">From collaborators completing specific tasks to pollinators engaging in conversations or stakeholder roles, each volunteer's unique contribution is essential to our mission of making a difference.</p>
+    </div>
+  </section>
+
+  <!-- ROLES -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Roles</span>
+        <h2>Three ways to get involved.</h2>
+      </div>
+      <div class="grid grid--3">
+        <div class="card card--on-alt">
+          <img class="role-card__image" src="images/hyphae.jpg" alt="Minimalist illustration of hyphae in cell culture" />
+          <h3>Collaborators</h3>
+          <p class="quiet"><strong>Share your time and energy.</strong></p>
+          <p class="quiet">What skills are you motivated to practice, develop, or apply?</p>
+          <p class="quiet">Work on specific tasks whenever available, providing valuable contributions to ongoing projects.</p>
+        </div>
+        <div class="card card--on-alt">
+          <img class="role-card__image" src="images/pollinator.jpg" alt="Minimalist illustration of a pollinator on an orchid" />
+          <h3>Pollinators</h3>
+          <p class="quiet"><strong>Share your sense of purpose.</strong></p>
+          <p class="quiet">What ideas do you have?</p>
+          <p class="quiet">Engage in conversations or act as a stakeholder in defined projects, sharing insights and expertise to drive progress.</p>
+        </div>
+        <div class="card card--on-alt">
+          <img class="role-card__image" src="images/watering-can.jpg" alt="Minimalist illustration of a watering can" />
+          <h3>Gardeners</h3>
+          <p class="quiet"><strong>Share your experience and influence.</strong></p>
+          <p class="quiet">What do you know how to accomplish?</p>
+          <p class="quiet">Dive in with consistent involvement, offering mentorship, guidance, and support to projects and team members.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGN UP -->
+  <section class="section" id="signup">
+    <div class="container">
+      <div class="section-head" style="text-align: center; margin: 0 auto 3rem;">
+        <span class="eyebrow">Sign me up!</span>
+        <h2>Tell us who you are.</h2>
+      </div>
+
+      <!-- Form posts to mailto (no backend needed); user's email client opens pre-filled -->
+      <form class="signup-form" action="mailto:contact@orchidinitiative.com" method="post" enctype="text/plain">
+        <div class="field-row">
+          <div class="field">
+            <label for="first-name">First name</label>
+            <input id="first-name" type="text" name="First Name" required>
+          </div>
+          <div class="field">
+            <label for="last-name">Last name</label>
+            <input id="last-name" type="text" name="Last Name" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" name="Email" required>
+        </div>
+
+        <div class="field">
+          <label for="role">Interested role</label>
+          <select id="role" name="Interested Role" required>
+            <option value="">Choose a role</option>
+            <option value="Collaborator">Collaborator &mdash; share time and energy on specific tasks</option>
+            <option value="Pollinator">Pollinator &mdash; share ideas and engage in conversations</option>
+            <option value="Gardener">Gardener &mdash; share experience as a mentor or guide</option>
+            <option value="Not sure yet">Not sure yet &mdash; let's talk</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="Message" placeholder="What skills, interests, or ideas are you bringing?"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--primary arrow" style="width: 100%; justify-content: center;">Send</button>
+        <p class="quiet" style="text-align: center; margin-top: 1rem; font-size: var(--fs-xs);">Submitting opens your email client with a pre-filled message to contact@orchidinitiative.com.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <span>&copy; 2026 Orchid Initiative.</span>
+    <div>
+      <a href="https://github.com/orchid-initiative">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="http://rileeki.slack.com">Slack</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/company/91141234">LinkedIn</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.orchidinitiative.com/privacy-policy">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.querySelector('.site-header');
+  const toggle = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+</script>
+
+</body>
+</html>

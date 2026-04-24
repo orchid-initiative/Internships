@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Orchid Initiative</title>
+<meta name="description" content="Orchid Initiative matches under-resourced ideas with the people who can bring them to life — dreamers, learners, and experts working together.">
+<link rel="icon" type="image/avif" href="orchid.avif">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <img class="logo-mark" src="orchid.avif" alt="Orchid" width="28" height="28" />
+      <span>Orchid Initiative</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="internships/">Internships</a></li>
+        <li><a href="podcast.html" class="hide-mobile">Podcast</a></li>
+        <li><a href="about.html" class="is-active">About</a></li>
+        <li><a href="contact.html" class="hide-mobile">Contact</a></li>
+        <li><a href="https://givebutter.com/orchid-initiative-general-donations-7mqkid" class="btn btn--primary">Donate</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__inner">
+        <span class="eyebrow">About us</span>
+        <h1>Why "Orchid"?</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY ORCHID -->
+  <section class="section" style="padding-top: 1rem;">
+    <div class="container">
+      <div style="max-width: 680px;">
+        <p style="font-size: var(--fs-md); line-height: 1.6; margin-bottom: 1.5rem;">Unlike most seeds, orchid seeds lack the nutrients to grow on their own. Their survival depends on forming a symbiotic relationship with a specific fungus &mdash; an unlikely partner that helps them germinate and take root. The gorgeous blooms you see come from one-in-a-million lucky matches.</p>
+        <p style="font-size: var(--fs-md); line-height: 1.6; margin-bottom: 1.5rem;">Some ideas are like that too. They're deeply meaningful but don't yet have the right tools, team, or technical support to grow. Others are born from the joy of solving hard problems, even when the outcome isn't personal.</p>
+        <p style="font-size: var(--fs-md); line-height: 1.6;">We match one with the other &mdash; connecting people who care deeply about a challenge with those who love bringing new things to life.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Vision</span>
+      </div>
+      <blockquote class="pull">
+        We aim to unlock the potential of every person to become a catalyst for positive change, ultimately shaping a more connected, purpose-driven society where everyone thrives.
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Mission</span>
+      </div>
+      <blockquote class="pull">
+        At the Orchid Initiative, we collect good ideas that can't find resources through conventional channels. We cultivate an ecosystem where individuals are connected to meaningful projects, fostering a culture of fulfillment, empowerment, and collective progress.
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">How we work</span>
+        <h2>Three kinds of people. One ecosystem.</h2>
+      </div>
+      <div class="grid grid--3">
+        <div class="card card--on-alt">
+          <h3>Dreamers</h3>
+          <p class="quiet">Have a problem you care about solving? You don't need to build the solution alone. Share your context and conviction &mdash; we'll help find the traction.</p>
+        </div>
+        <div class="card card--on-alt">
+          <h3>Learners</h3>
+          <p class="quiet">Want to develop your skills by working on something real? We'll match you with a project where your time and curiosity matter.</p>
+        </div>
+        <div class="card card--on-alt">
+          <h3>Experts</h3>
+          <p class="quiet">Want to lend your experience to something new? Join us as a mentor, guide, or co-creator. Your judgment helps others grow strong.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <div class="container">
+      <h2>Find your fit.</h2>
+      <p class="lede">Whether you're bringing an idea, a skill set, or a little free time, there's a way in.</p>
+      <div class="btn-group" style="justify-content: center;">
+        <a href="volunteers.html" class="btn btn--primary arrow">Volunteer with us</a>
+        <a href="contact.html" class="btn btn--secondary">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <span>&copy; 2026 Orchid Initiative.</span>
+    <div>
+      <a href="https://github.com/orchid-initiative">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="http://rileeki.slack.com">Slack</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/company/91141234">LinkedIn</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.orchidinitiative.com/privacy-policy">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.querySelector('.site-header');
+  const toggle = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+</script>
+
+</body>
+</html>

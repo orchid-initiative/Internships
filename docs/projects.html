@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Orchid Initiative</title>
+<meta name="description" content="Selected active projects and ongoing initiatives at the Orchid Initiative — accessibility, healthcare, community advocacy, energy research, and more.">
+<link rel="icon" type="image/avif" href="orchid.avif">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Projects-specific */
+  .featured-project {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--border-soft);
+  }
+  .featured-project:last-child { border-bottom: 1px solid var(--border-soft); }
+  .featured-project__image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--radius);
+    background: var(--bg-deep);
+  }
+  .featured-project__meta {
+    font-size: var(--fs-xs);
+    color: var(--accent-deep);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .other-project {
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border-soft);
+  }
+  .other-project:last-child { border-bottom: 1px solid var(--border-soft); }
+  .other-project__meta {
+    font-size: var(--fs-xs);
+    color: var(--accent-deep);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    margin-bottom: 0.35rem;
+  }
+  .other-project h3 {
+    font-size: var(--fs-md);
+    margin-bottom: 0.35rem;
+  }
+  .other-project p { margin: 0; color: var(--ink-soft); }
+
+  @media (max-width: 720px) {
+    .featured-project { grid-template-columns: 1fr; gap: 1.5rem; }
+    .featured-project__image { max-width: 280px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <img class="logo-mark" src="orchid.avif" alt="Orchid" width="28" height="28" />
+      <span>Orchid Initiative</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="projects.html" class="is-active">Projects</a></li>
+        <li><a href="internships/">Internships</a></li>
+        <li><a href="podcast.html" class="hide-mobile">Podcast</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="hide-mobile">Contact</a></li>
+        <li><a href="https://givebutter.com/orchid-initiative-general-donations-7mqkid" class="btn btn--primary">Donate</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" style="padding-bottom: 2rem;">
+    <div class="container">
+      <div class="hero__inner">
+        <span class="eyebrow">Projects</span>
+        <h1>Selected Active Projects.</h1>
+        <p class="lede">Collaborations underway across accessibility, healthcare, community advocacy, and research. Each one began with someone caring deeply about the problem — and an unlikely partner willing to help.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS -->
+  <section class="section" style="padding-top: 1rem;">
+    <div class="container">
+
+      <article class="featured-project">
+        <a href="https://github.com/orchid-initiative/synthetic-database-project">
+          <img class="featured-project__image" src="https://static.wixstatic.com/media/nsplsh_2465325f1ff44fdbb82c63d07f754852~mv2.jpg/v1/fill/w_800,h_800,al_c,q_85/Image%20by%20Bozhin%20Karaivanov.jpg" alt="Math Education Accessibility — photograph by Bozhin Karaivanov" />
+        </a>
+        <div>
+          <div class="featured-project__meta">Accessibility · Education</div>
+          <h2 style="font-size: var(--fs-xl); margin-bottom: 0.75rem;">Math Education Accessibility</h2>
+          <p>The language of math requires specialized screen readers for blind and low-vision learners. We connect math-loving hobbyist programmers with existing accessibility efforts and help them meaningfully contribute.</p>
+          <p><a href="https://github.com/orchid-initiative/synthetic-database-project" class="btn btn--ghost arrow">View on GitHub</a></p>
+        </div>
+      </article>
+
+      <article class="featured-project">
+        <a href="https://nuevoamanecermujerintegral.org/inicio">
+          <img class="featured-project__image" src="https://static.wixstatic.com/media/9107da_6cbdf0711df148919d08b724cd72896d~mv2.jpg/v1/fill/w_400,h_400,al_c,q_85/IMG_3808_edited.jpg" alt="Nuevo Amanecer Mujer Integral logo" />
+        </a>
+        <div>
+          <div class="featured-project__meta">Community advocacy</div>
+          <h2 style="font-size: var(--fs-xl); margin-bottom: 0.75rem;">Nuevo Amanecer Mujer Integral</h2>
+          <p>NAMI doesn't always have the capacity to execute their community members' ideas for small businesses, creative reuse projects, and community events. Orchid serves as a conduit, matching students and volunteers to support those initiatives.</p>
+          <p><a href="https://nuevoamanecermujerintegral.org/inicio" class="btn btn--ghost arrow">Visit NAMI</a></p>
+        </div>
+      </article>
+
+      <article class="featured-project">
+        <a href="https://github.com/orchid-initiative/synthetic-database-project">
+          <img class="featured-project__image" src="https://static.wixstatic.com/media/nsplsh_8785de2b838144049d2735f07196e91c~mv2.jpg/v1/fill/w_800,h_800,al_c,q_85/Image%20by%20Derek%20Finch.jpg" alt="Synthetic Hospital Data — photograph by Derek Finch" />
+        </a>
+        <div>
+          <div class="featured-project__meta">Healthcare</div>
+          <h2 style="font-size: var(--fs-xl); margin-bottom: 0.75rem;">Synthetic Hospital Data</h2>
+          <p>Decisions that affect healthcare are often justified using analyses of protected patient data. We make it possible for students, volunteers, and advocates to develop and test those analyses using realistically complex synthetic data.</p>
+          <p><a href="https://github.com/orchid-initiative/synthetic-database-project" class="btn btn--ghost arrow">View on GitHub</a></p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- OTHER PROJECTS -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Other projects</span>
+        <h2>More ideas taking root.</h2>
+      </div>
+
+      <div>
+        <div class="other-project">
+          <div class="other-project__meta">Healthcare</div>
+          <h3>Postpartum LARC Study</h3>
+          <p>Analyzing contraceptive access at California hospitals to support physician-led advocacy.</p>
+        </div>
+
+        <div class="other-project">
+          <div class="other-project__meta">Education · Student experience</div>
+          <h3><a href="podcast.html" style="color: inherit;">Life After Caltech Podcast &rarr;</a></h3>
+          <p>A student-alumni podcast sharing authentic stories of Caltech graduates.</p>
+        </div>
+
+        <div class="other-project">
+          <div class="other-project__meta">Community development</div>
+          <h3>Laelia Store</h3>
+          <p>A virtual resale shop as a training platform for community members to build digital and business skills.</p>
+        </div>
+
+        <div class="other-project">
+          <div class="other-project__meta">Community advocacy</div>
+          <h3>Shade Structure Project</h3>
+          <p>Helping a renter in Alhambra work with the city on a code-compliant shade solution.</p>
+        </div>
+
+        <div class="other-project">
+          <div class="other-project__meta">Energy research</div>
+          <h3>GeoTES</h3>
+          <p>Geological thermal energy storage research exploring repurposed oil wells as thermal batteries.</p>
+        </div>
+
+        <div class="other-project">
+          <div class="other-project__meta">Internships</div>
+          <h3>Capsida Interns</h3>
+          <p>We placed two students from Moorpark College in paid internship positions on the research team at a growing gene therapy company.</p>
+        </div>
+
+        <div class="other-project">
+          <div class="other-project__meta">Healthcare · Education</div>
+          <h3>Vaccine Hesitancy</h3>
+          <p>A practical learning experience exploring survey data on COVID-19 vaccine hesitancy in the pregnant population at a hospital in the California Central Valley.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GET INVOLVED -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Have an idea for a new project or want to get involved?</h2>
+        <p class="lede">New seeds are always welcome.</p>
+      </div>
+      <div class="btn-group">
+        <a href="mailto:contact@orchidinitiative.com" class="btn btn--primary arrow">contact@orchidinitiative.com</a>
+        <a href="https://calendar.app.google/tra9nQWJPyP2jcaq8" class="btn btn--secondary">Book open office hours</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <span>&copy; 2026 Orchid Initiative.</span>
+    <div>
+      <a href="https://github.com/orchid-initiative">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="http://rileeki.slack.com">Slack</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/company/91141234">LinkedIn</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.orchidinitiative.com/privacy-policy">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.querySelector('.site-header');
+  const toggle = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+</script>
+
+</body>
+</html>

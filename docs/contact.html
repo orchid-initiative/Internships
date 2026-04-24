@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Orchid Initiative</title>
+<meta name="description" content="Get in touch with the Orchid Initiative. Email us or book a time to talk.">
+<link rel="icon" type="image/avif" href="orchid.avif">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <img class="logo-mark" src="orchid.avif" alt="Orchid" width="28" height="28" />
+      <span>Orchid Initiative</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="internships/">Internships</a></li>
+        <li><a href="podcast.html" class="hide-mobile">Podcast</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="is-active">Contact</a></li>
+        <li><a href="https://givebutter.com/orchid-initiative-general-donations-7mqkid" class="btn btn--primary">Donate</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__inner">
+        <span class="eyebrow">Contact</span>
+        <h1>Interested in learning&nbsp;more?</h1>
+        <p class="lede">If you have questions, email us. If you'd like to talk about a position or a project idea, book a time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CARDS -->
+  <section class="section" style="padding-top: 1rem;">
+    <div class="container">
+      <div class="grid grid--2">
+        <div class="card">
+          <span class="eyebrow">Email</span>
+          <h2 style="font-size: var(--fs-xl); margin-bottom: 1rem;">Send us a note.</h2>
+          <p class="quiet" style="margin-bottom: 1.5rem;">We read every message and respond within a few days.</p>
+          <a href="mailto:contact@orchidinitiative.com" class="btn btn--primary arrow">contact@orchidinitiative.com</a>
+        </div>
+        <div class="card">
+          <span class="eyebrow">Book a call</span>
+          <h2 style="font-size: var(--fs-xl); margin-bottom: 1rem;">Schedule a time.</h2>
+          <p class="quiet" style="margin-bottom: 1.5rem;">Interested in a position, hosting a project, or collaborating? Pick a slot and we'll meet.</p>
+          <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0HHkuJuRac2dSx_93MgEJekBgIreSf_KKbfAm5OrSdO0umkkZ_o72HdXyzAKKbEm01UgfokdMP" class="btn btn--primary arrow">Schedule now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECONDARY PATHS -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Other ways in</span>
+        <h2>Depending on what you're after.</h2>
+      </div>
+      <div class="grid grid--3">
+        <a class="card card--on-alt" href="volunteers.html" style="text-decoration: none; color: inherit;">
+          <h3>Volunteer <span class="quiet">&rarr;</span></h3>
+          <p class="quiet">Join as a collaborator, pollinator, or gardener.</p>
+        </a>
+        <a class="card card--on-alt" href="internships/" style="text-decoration: none; color: inherit;">
+          <h3>Apply for an internship <span class="quiet">&rarr;</span></h3>
+          <p class="quiet">Summer program for college students.</p>
+        </a>
+        <a class="card card--on-alt" href="projects.html" style="text-decoration: none; color: inherit;">
+          <h3>Host a project <span class="quiet">&rarr;</span></h3>
+          <p class="quiet">Bring an under-resourced idea to the program.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <span>&copy; 2026 Orchid Initiative.</span>
+    <div>
+      <a href="https://github.com/orchid-initiative">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="http://rileeki.slack.com">Slack</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/company/91141234">LinkedIn</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.orchidinitiative.com/privacy-policy">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.querySelector('.site-header');
+  const toggle = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+</script>
+
+</body>
+</html>

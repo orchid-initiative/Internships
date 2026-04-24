@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life After Caltech Podcast — Orchid Initiative</title>
+<meta name="description" content="A student-led podcast featuring candid conversations with Caltech alumni. Produced by the Orchid Initiative, independent and unaffiliated with Caltech.">
+<link rel="icon" type="image/avif" href="orchid.avif">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .podcast-hero {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding: clamp(3rem, 7vw, 6rem) 0 clamp(2rem, 5vw, 4rem);
+  }
+  .podcast-hero__art {
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 24px 60px -20px rgba(42, 35, 32, 0.18);
+    justify-self: center;
+  }
+  .hosts-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    font-size: var(--fs-sm);
+    color: var(--ink-soft);
+    margin-top: 2rem;
+  }
+  .hosts-line strong { color: var(--ink); font-weight: 500; }
+
+  .platform-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    max-width: 720px;
+  }
+  .platform-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 180ms var(--ease);
+  }
+  .platform-link:hover {
+    border-color: var(--ink);
+    background: var(--bg-alt);
+    transform: translateY(-1px);
+  }
+  @media (max-width: 720px) {
+    .podcast-hero { grid-template-columns: 1fr; gap: 2rem; text-align: left; padding-top: 3rem; }
+    .platform-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <img class="logo-mark" src="orchid.avif" alt="Orchid" width="28" height="28" />
+      <span>Orchid Initiative</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="internships/">Internships</a></li>
+        <li><a href="podcast.html" class="is-active hide-mobile">Podcast</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="hide-mobile">Contact</a></li>
+        <li><a href="https://givebutter.com/orchid-initiative-general-donations-7mqkid" class="btn btn--primary">Donate</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section>
+    <div class="container">
+      <div class="podcast-hero">
+        <div>
+          <span class="eyebrow">Podcast</span>
+          <h1>Life After Caltech.</h1>
+          <p class="lede">Life After Caltech is a student-led podcast featuring candid conversations with alumni. It's a reminder that no matter the ups and downs, there is, in fact, a life after Caltech.</p>
+          <p class="quiet" style="font-size: var(--fs-sm);">Produced by the Orchid Initiative, the podcast is independent and unaffiliated with Caltech.</p>
+
+          <div class="hosts-line">
+            <span><strong>Hosted by</strong></span>
+            <span>Claire Ellison <span class="quiet">— Ricketts House, 2027</span></span>
+            <span>Mason Smith <span class="quiet">— Page House, 2009</span></span>
+          </div>
+        </div>
+        <img class="podcast-hero__art" src="images/podcast-logo.png" alt="Life After Caltech podcast cover art" />
+      </div>
+    </div>
+  </section>
+
+  <!-- LISTEN -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Listen now!</span>
+        <h2>Wherever you get your podcasts.</h2>
+      </div>
+      <div class="platform-grid">
+        <a class="platform-link" href="https://podcasts.apple.com/us/podcast/life-after-caltech/id1829191625" target="_blank" rel="noopener">Apple Podcasts</a>
+        <a class="platform-link" href="https://open.spotify.com/show/004lpgdMu2RxahCK2Mh7Zj" target="_blank" rel="noopener">Spotify</a>
+        <a class="platform-link" href="https://www.youtube.com/@LifeAfterCaltechPodcast" target="_blank" rel="noopener">YouTube</a>
+        <a class="platform-link" href="https://overcast.fm/itunes1829191625/life-after-caltech" target="_blank" rel="noopener">Overcast</a>
+        <a class="platform-link" href="https://www.iheart.com/podcast/269-life-after-caltech-289214073/" target="_blank" rel="noopener">iHeartRadio</a>
+        <a class="platform-link" href="https://anchor.fm/s/10733ba8c/podcast/rss" target="_blank" rel="noopener">RSS Feed</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GET INVOLVED -->
+  <section class="cta-band">
+    <div class="container">
+      <h2>Want to be on the show?</h2>
+      <p class="lede">Interested in being a guest or helping out with production? Drop us a line.</p>
+      <div class="btn-group" style="justify-content: center;">
+        <a href="mailto:LifeAfterCaltech@gmail.com" class="btn btn--primary arrow">LifeAfterCaltech@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <span>&copy; 2026 Orchid Initiative.</span>
+    <div>
+      <a href="https://github.com/orchid-initiative">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="http://rileeki.slack.com">Slack</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/company/91141234">LinkedIn</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.orchidinitiative.com/privacy-policy">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.querySelector('.site-header');
+  const toggle = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+</script>
+
+</body>
+</html>
