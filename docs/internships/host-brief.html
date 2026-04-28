@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Host Problem Brief — Orchid Internship Program</title>
+<meta name="description" content="Tell us about a project you'd like a summer intern to own. About 20 minutes of focused thinking. We'll follow up to sharpen the brief.">
+<link rel="icon" type="image/avif" href="../orchid.avif">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* ----- Form-specific styles, scoped to this page ----- */
+  .brief-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 4rem;
+    align-items: start;
+    padding: 3rem 0 5rem;
+  }
+  .brief-form { max-width: 760px; }
+
+  fieldset.section-block {
+    border: none;
+    padding: 0;
+    margin: 0 0 3.5rem;
+  }
+  fieldset.section-block:last-of-type { margin-bottom: 1rem; }
+
+  fieldset.section-block > legend {
+    font-family: var(--f-display);
+    font-size: var(--fs-xl);
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.015em;
+    padding: 0;
+    margin-bottom: 0.5rem;
+  }
+  .section-intro {
+    color: var(--ink-soft);
+    margin-bottom: 1.75rem;
+    max-width: var(--max-w-prose);
+  }
+
+  .field {
+    margin-bottom: 1.75rem;
+    max-width: var(--max-w-prose);
+  }
+  .field label.field__label,
+  .field > legend {
+    display: block;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+    font-size: var(--fs-base);
+    padding: 0;
+  }
+  .field .req { color: var(--accent-deep); margin-left: 0.15rem; }
+  .field .help {
+    display: block;
+    font-size: var(--fs-sm);
+    color: var(--ink-soft);
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
+  }
+  .field .help em {
+    font-style: italic;
+    color: var(--ink-muted);
+  }
+
+  /* Inputs */
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="url"],
+  .field input[type="number"],
+  .field select,
+  .field textarea {
+    width: 100%;
+    font-family: var(--f-body);
+    font-size: var(--fs-base);
+    color: var(--ink);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.7rem 0.9rem;
+    line-height: 1.5;
+    transition: border-color 150ms var(--ease), box-shadow 150ms var(--ease);
+  }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+  .field textarea {
+    min-height: 6.5rem;
+    resize: vertical;
+  }
+  .field textarea.tall { min-height: 11rem; }
+
+  .char-count {
+    display: block;
+    text-align: right;
+    font-size: var(--fs-xs);
+    color: var(--ink-muted);
+    margin-top: 0.3rem;
+  }
+
+  /* Radio / checkbox lists */
+  .options {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+  .options.options--cols {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.55rem 1.5rem;
+  }
+  .options li { margin: 0; }
+  .options label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    background: var(--bg);
+    cursor: pointer;
+    transition: all 150ms var(--ease);
+    font-size: var(--fs-sm);
+    line-height: 1.45;
+    color: var(--ink);
+  }
+  .options label:hover {
+    border-color: var(--border);
+    background: var(--bg-alt);
+  }
+  .options input { margin-top: 0.2rem; accent-color: var(--accent-deep); flex-shrink: 0; }
+  .options input:checked + span { color: var(--ink); font-weight: 500; }
+  .options label:has(input:checked) {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  /* Conditional reveal */
+  .conditional {
+    display: none;
+    margin-top: 0.9rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--border-soft);
+  }
+  .conditional.is-visible { display: block; }
+
+  /* Submit area */
+  .form-submit {
+    border-top: 1px solid var(--border-soft);
+    padding-top: 2rem;
+    margin-top: 1rem;
+  }
+  .form-note {
+    font-size: var(--fs-sm);
+    color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+    max-width: var(--max-w-prose);
+  }
+
+  .toc__title { margin-top: 0; }
+
+  /* Preview banner */
+  .preview-banner {
+    background: var(--accent-soft);
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    color: var(--ink);
+    font-size: var(--fs-sm);
+    padding: 0.65rem 0;
+    text-align: center;
+  }
+  .preview-banner strong { color: var(--accent-deep); }
+
+  @media (max-width: 860px) {
+    .brief-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .toc { position: static; }
+    .options.options--cols { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="preview-banner">
+  <div class="container">
+    <strong>Draft preview.</strong> This is a working mock — submissions don't go anywhere yet.
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="../" class="logo">
+      <img class="logo-mark" src="../orchid.avif" alt="Orchid" width="28" height="28" />
+      <span>Orchid Initiative</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="for-hosts.html">For hosts</a></li>
+        <li><a href="for-interns.html">For interns</a></li>
+        <li><a href="setup.html">Setup guide</a></li>
+        <li><a href="open-projects.html" class="hide-mobile">Open projects</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom: 1rem;">
+    <div class="container">
+      <div class="hero__inner">
+        <span class="eyebrow">Host Problem Brief</span>
+        <h1>Tell us about your project.</h1>
+        <p class="lede">About <strong>20 minutes</strong> of focused thinking. We'll read it within a week and follow up with a 30-minute sharpening call. Most fields are quick picks; a couple ask for real writing — those are the ones that matter most.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="brief-layout">
+
+      <!-- Sticky TOC -->
+      <aside class="toc" aria-label="Form sections">
+        <div class="toc__title">Sections</div>
+        <ul>
+          <li><a href="#sec-1">1 · About you</a></li>
+          <li><a href="#sec-2">2 · Project at a glance</a></li>
+          <li><a href="#sec-3">3 · Domain &amp; data</a></li>
+          <li><a href="#sec-4">4 · Tech stack</a></li>
+          <li><a href="#sec-5">5 · Time &amp; duration</a></li>
+          <li><a href="#sec-6">6 · Location</a></li>
+          <li><a href="#sec-7">7 · Compensation</a></li>
+          <li><a href="#sec-8">8 · Intern profile</a></li>
+          <li><a href="#sec-9">9 · Risk &amp; publicity</a></li>
+        </ul>
+      </aside>
+
+      <!-- The form -->
+      <form class="brief-form" id="hostBrief" novalidate>
+
+        <!-- ============================================================
+             1. ABOUT YOU
+        ============================================================ -->
+        <fieldset class="section-block" id="sec-1">
+          <legend>1 · About you</legend>
+          <p class="section-intro">Just enough to follow up. We don't share contact info publicly without asking.</p>
+
+          <div class="field">
+            <label class="field__label" for="name">Your name<span class="req">*</span></label>
+            <input id="name" name="name" type="text" required>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="role">Your role<span class="req">*</span></label>
+            <span class="help">e.g., Executive Director, PI, Founder, Engineering Lead.</span>
+            <input id="role" name="role" type="text" required>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="email">Email<span class="req">*</span></label>
+            <input id="email" name="email" type="email" required>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="org">Organization name<span class="req">*</span></label>
+            <input id="org" name="org" type="text" required>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="orgUrl">Organization website</label>
+            <input id="orgUrl" name="orgUrl" type="url" placeholder="https://">
+          </div>
+
+          <fieldset class="field">
+            <legend>What kind of host are you?<span class="req">*</span></legend>
+            <ul class="options">
+              <li><label><input type="radio" name="hostType" value="nonprofit" required><span>Small non-profit</span></label></li>
+              <li><label><input type="radio" name="hostType" value="academic"><span>Academic researcher / lab</span></label></li>
+              <li><label><input type="radio" name="hostType" value="founder"><span>Early-stage founder</span></label></li>
+              <li><label><input type="radio" name="hostType" value="non-tech-org"><span>Technical team in a non-tech org (museum, school district, food bank, etc.)</span></label></li>
+              <li><label><input type="radio" name="hostType" value="independent"><span>Independent researcher / engineer</span></label></li>
+              <li><label><input type="radio" name="hostType" value="oss"><span>Open-source maintainer</span></label></li>
+              <li><label><input type="radio" name="hostType" value="other"><span>Something else</span></label></li>
+            </ul>
+          </fieldset>
+
+          <div class="field">
+            <label class="field__label" for="referral">How did you hear about Orchid?</label>
+            <input id="referral" name="referral" type="text" placeholder="A person, a podcast, a search…">
+          </div>
+        </fieldset>
+
+        <!-- ============================================================
+             2. PROJECT AT A GLANCE
+        ============================================================ -->
+        <fieldset class="section-block" id="sec-2">
+          <legend>2 · Project at a glance</legend>
+          <p class="section-intro">The single biggest predictor of a strong summer is a clear brief. Don't worry about polish — we'll sharpen it on the call.</p>
+
+          <div class="field">
+            <label class="field__label" for="title">Project title<span class="req">*</span></label>
+            <span class="help">Short and concrete. "Replace our donor CSV pipeline with a real database" beats "Data improvements."</span>
+            <input id="title" name="title" type="text" maxlength="80" required>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="pitch">One-sentence pitch<span class="req">*</span></label>
+            <span class="help">Finish this sentence: <em>"An intern who joins this project will…"</em></span>
+            <input id="pitch" name="pitch" type="text" maxlength="200" required>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="brief">The brief<span class="req">*</span></label>
+            <span class="help">
+              What's the problem, why it matters, who benefits, and what would <em>shipped</em> look like?
+              150–400 words is plenty.
+            </span>
+            <textarea id="brief" name="brief" class="tall" data-counter="briefCount" required></textarea>
+            <span class="char-count"><span id="briefCount">0</span> words</span>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="acceptance">Acceptance criteria<span class="req">*</span></label>
+            <span class="help">2–3 observable things that would tell you the work is done. <em>"Donors can be filtered by zip in under 200ms"</em> beats <em>"the system is faster."</em></span>
+            <textarea id="acceptance" name="acceptance" required placeholder="1.&#10;2.&#10;3."></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="nonGoals">Named non-goals</label>
+            <span class="help">What is explicitly <em>out</em> of scope this summer? This protects everyone — the most common cause of a rough summer is silent scope creep.</span>
+            <textarea id="nonGoals" name="nonGoals"></textarea>
+          </div>
+        </fieldset>
+
+        <!-- ============================================================
+             3. DOMAIN & DATA
+        ============================================================ -->
+        <fieldset class="section-block" id="sec-3">
+          <legend>3 · Domain &amp; data</legend>
+          <p class="section-intro">This drives matching and tells us what guardrails the workspace needs.</p>
+
+          <fieldset class="field">
+            <legend>Primary domain (pick all that apply)<span class="req">*</span></legend>
+            <ul class="options options--cols">
+              <li><label><input type="checkbox" name="domain" value="web"><span>Web app</span></label></li>
+              <li><label><input type="checkbox" name="domain" value="data-pipeline"><span>Data pipeline / ETL</span></label></li>
+              <li><label><input type="checkbox" name="domain" value="ml-ai"><span>ML / AI</span></label></li>
+              <li><label><input type="checkbox" name="domain" value="research"><span>Research code</span></label></li>
+              <li><label><input type="checkbox" name="domain" value="mobile"><span>Mobile</span></label></li>
+              <li><label><input type="checkbox" name="domain" value="embedded"><span>Embedded / hardware</span></label></li>
+              <li><label><input type="checkbox" name="domain" value="viz"><span>Visualization / dashboards</span></label></li>
+              <li><label><input type="checkbox" name="domain" value="docs"><span>Documentation / writing</span></label></li>
+              <li><label><input type="checkbox" name="domain" value="internal-tooling"><span>Internal tooling</span></label></li>
+              <li><label><input type="checkbox" name="domain" value="other"><span>Other</span></label></li>
+            </ul>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Data sensitivity<span class="req">*</span></legend>
+            <ul class="options">
+              <li><label><input type="radio" name="dataSensitivity" value="none" required><span>No data involved</span></label></li>
+              <li><label><input type="radio" name="dataSensitivity" value="public"><span>Public data only</span></label></li>
+              <li><label><input type="radio" name="dataSensitivity" value="proprietary"><span>Proprietary but not personally sensitive (internal tools, business data)</span></label></li>
+              <li><label><input type="radio" name="dataSensitivity" value="pii"><span>Personal info (PII)</span></label></li>
+              <li><label><input type="radio" name="dataSensitivity" value="hipaa"><span>Health data — HIPAA</span></label></li>
+              <li><label><input type="radio" name="dataSensitivity" value="pci"><span>Financial / payment — PCI</span></label></li>
+              <li><label><input type="radio" name="dataSensitivity" value="regulated-other"><span>Other regulated (FERPA, CJIS, ITAR, etc.)</span></label></li>
+            </ul>
+          </fieldset>
+
+          <div class="field">
+            <label class="field__label" for="complianceNotes">Any compliance constraints we should know about?</label>
+            <span class="help">e.g., data residency, IRB, BAA required, audit logging mandatory.</span>
+            <textarea id="complianceNotes" name="complianceNotes"></textarea>
+          </div>
+
+          <fieldset class="field">
+            <legend>Will the intern work with real data or synthetic?</legend>
+            <ul class="options">
+              <li><label><input type="radio" name="dataKind" value="real"><span>Real data only</span></label></li>
+              <li><label><input type="radio" name="dataKind" value="synthetic"><span>Synthetic / anonymized only</span></label></li>
+              <li><label><input type="radio" name="dataKind" value="both"><span>Both — synthetic during dev, real for validation</span></label></li>
+              <li><label><input type="radio" name="dataKind" value="na"><span>Not applicable</span></label></li>
+            </ul>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Repo visibility<span class="req">*</span></legend>
+            <ul class="options">
+              <li><label><input type="radio" name="repoVisibility" value="public" required><span>Public — anyone can view the code</span></label></li>
+              <li><label><input type="radio" name="repoVisibility" value="private"><span>Private — collaborators only</span></label></li>
+              <li><label><input type="radio" name="repoVisibility" value="decide-later"><span>Decide together on the sharpening call</span></label></li>
+            </ul>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>IP ownership<span class="req">*</span></legend>
+            <ul class="options">
+              <li><label><input type="radio" name="ipOwnership" value="host-owns" required><span>Host owns all output</span></label></li>
+              <li><label><input type="radio" name="ipOwnership" value="open-source"><span>Open-source under a permissive license (MIT/Apache)</span></label></li>
+              <li><label><input type="radio" name="ipOwnership" value="open-source-copyleft"><span>Open-source under a copyleft license (GPL/AGPL)</span></label></li>
+              <li><label><input type="radio" name="ipOwnership" value="shared"><span>Shared / negotiable — let's discuss</span></label></li>
+            </ul>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>NDA required before the intern starts?</legend>
+            <ul class="options">
+              <li><label><input type="radio" name="nda" value="no"><span>No</span></label></li>
+              <li><label><input type="radio" name="nda" value="yes"><span>Yes — we'll provide ours</span></label></li>
+              <li><label><input type="radio" name="nda" value="maybe"><span>Maybe — depends on what they touch</span></label></li>
+            </ul>
+          </fieldset>
+        </fieldset>
+
+        <!-- ============================================================
+             4. TECH STACK
+        ============================================================ -->
+        <fieldset class="section-block" id="sec-4">
+          <legend>4 · Tech stack</legend>
+          <p class="section-intro">Skip anything that doesn't apply. "I'm not sure" is a perfectly valid answer for greenfield work.</p>
+
+          <fieldset class="field">
+            <legend>Primary languages (pick all that apply)</legend>
+            <ul class="options options--cols">
+              <li><label><input type="checkbox" name="languages" value="python"><span>Python</span></label></li>
+              <li><label><input type="checkbox" name="languages" value="js-ts"><span>JavaScript / TypeScript</span></label></li>
+              <li><label><input type="checkbox" name="languages" value="go"><span>Go</span></label></li>
+              <li><label><input type="checkbox" name="languages" value="rust"><span>Rust</span></label></li>
+              <li><label><input type="checkbox" name="languages" value="java-kotlin"><span>Java / Kotlin</span></label></li>
+              <li><label><input type="checkbox" name="languages" value="c-cpp"><span>C / C++</span></label></li>
+              <li><label><input type="checkbox" name="languages" value="r"><span>R</span></label></li>
+              <li><label><input type="checkbox" name="languages" value="sql"><span>SQL</span></label></li>
+              <li><label><input type="checkbox" name="languages" value="swift"><span>Swift</span></label></li>
+              <li><label><input type="checkbox" name="languages" value="other-lang"><span>Other</span></label></li>
+              <li><label><input type="checkbox" name="languages" value="open"><span>Open — let the intern choose</span></label></li>
+            </ul>
+          </fieldset>
+
+          <div class="field">
+            <label class="field__label" for="frameworks">Key frameworks, libraries, or platforms</label>
+            <span class="help">e.g., Django, Next.js, FastAPI, React Native, Postgres, Snowflake, AWS Lambda. Comma-separated is fine.</span>
+            <input id="frameworks" name="frameworks" type="text">
+          </div>
+
+          <fieldset class="field">
+            <legend>Code maturity</legend>
+            <ul class="options">
+              <li><label><input type="radio" name="codeMaturity" value="greenfield"><span>Greenfield — nothing built yet</span></label></li>
+              <li><label><input type="radio" name="codeMaturity" value="prototype"><span>Early prototype</span></label></li>
+              <li><label><input type="radio" name="codeMaturity" value="production"><span>Active production</span></label></li>
+              <li><label><input type="radio" name="codeMaturity" value="legacy"><span>Legacy code we want to modernize</span></label></li>
+              <li><label><input type="radio" name="codeMaturity" value="mixed"><span>Mixed</span></label></li>
+            </ul>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Infra / hosting</legend>
+            <ul class="options options--cols">
+              <li><label><input type="checkbox" name="infra" value="none"><span>None yet</span></label></li>
+              <li><label><input type="checkbox" name="infra" value="github-only"><span>GitHub only</span></label></li>
+              <li><label><input type="checkbox" name="infra" value="aws"><span>AWS</span></label></li>
+              <li><label><input type="checkbox" name="infra" value="gcp"><span>GCP</span></label></li>
+              <li><label><input type="checkbox" name="infra" value="azure"><span>Azure</span></label></li>
+              <li><label><input type="checkbox" name="infra" value="on-prem"><span>On-premises</span></label></li>
+              <li><label><input type="checkbox" name="infra" value="self-hosted"><span>Self-hosted (DigitalOcean, Hetzner, etc.)</span></label></li>
+              <li><label><input type="checkbox" name="infra" value="other-infra"><span>Other</span></label></li>
+            </ul>
+          </fieldset>
+        </fieldset>
+
+        <!-- ============================================================
+             5. TIME & DURATION
+        ============================================================ -->
+        <fieldset class="section-block" id="sec-5">
+          <legend>5 · Time &amp; duration</legend>
+          <p class="section-intro">We design around the time you actually have, not the time you wish you had.</p>
+
+          <fieldset class="field">
+            <legend>How much host time can you commit per week?<span class="req">*</span></legend>
+            <ul class="options">
+              <li><label><input type="radio" name="hostTime" value="lt-30" required><span>30 minutes or less — the Orchid baseline</span></label></li>
+              <li><label><input type="radio" name="hostTime" value="30-60"><span>30–60 minutes</span></label></li>
+              <li><label><input type="radio" name="hostTime" value="60-120"><span>1–2 hours</span></label></li>
+              <li><label><input type="radio" name="hostTime" value="2plus"><span>2+ hours — high-touch mentorship welcome</span></label></li>
+            </ul>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Response time you can commit to for blockers<span class="req">*</span></legend>
+            <ul class="options">
+              <li><label><input type="radio" name="responseTime" value="same-day" required><span>Same day</span></label></li>
+              <li><label><input type="radio" name="responseTime" value="24h"><span>Within 24 hours</span></label></li>
+              <li><label><input type="radio" name="responseTime" value="48h"><span>Within 48 hours</span></label></li>
+              <li><label><input type="radio" name="responseTime" value="week"><span>Within a week</span></label></li>
+            </ul>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Program length<span class="req">*</span></legend>
+            <ul class="options">
+              <li><label><input type="radio" name="programLength" value="8w" required><span>8 weeks</span></label></li>
+              <li><label><input type="radio" name="programLength" value="10w"><span>10 weeks</span></label></li>
+              <li><label><input type="radio" name="programLength" value="12w"><span>12 weeks</span></label></li>
+              <li><label><input type="radio" name="programLength" value="flexible"><span>Flexible — open to discussion</span></label></li>
+            </ul>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Preferred start window<span class="req">*</span></legend>
+            <ul class="options">
+              <li><label><input type="radio" name="startWindow" value="early-june" required><span>Early June</span></label></li>
+              <li><label><input type="radio" name="startWindow" value="mid-june"><span>Mid June</span></label></li>
+              <li><label><input type="radio" name="startWindow" value="early-july"><span>Early July</span></label></li>
+              <li><label><input type="radio" name="startWindow" value="other-start"><span>Other (tell us below)</span></label></li>
+            </ul>
+          </fieldset>
+
+          <div class="field">
+            <label class="field__label" for="hardDeadline">Hard deadline driving this work?</label>
+            <span class="help">Grant report, conference, product launch, board meeting — anything that fixes when "done" has to be done.</span>
+            <textarea id="hardDeadline" name="hardDeadline"></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="timezone">Your time zone<span class="req">*</span></label>
+            <select id="timezone" name="timezone" required>
+              <option value="">Select…</option>
+              <option>Pacific (PT)</option>
+              <option>Mountain (MT)</option>
+              <option>Central (CT)</option>
+              <option>Eastern (ET)</option>
+              <option>Atlantic / AT</option>
+              <option>UK / GMT / BST</option>
+              <option>Continental Europe (CET / CEST)</option>
+              <option>Eastern Europe (EET)</option>
+              <option>India (IST)</option>
+              <option>SE Asia (SGT / ICT)</option>
+              <option>Japan / Korea (JST / KST)</option>
+              <option>Australia East (AET)</option>
+              <option>Other — list below</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <!-- ============================================================
+             6. LOCATION
+        ============================================================ -->
+        <fieldset class="section-block" id="sec-6">
+          <legend>6 · Location &amp; arrangement</legend>
+
+          <fieldset class="field" id="arrangementField">
+            <legend>Work arrangement<span class="req">*</span></legend>
+            <ul class="options">
+              <li><label><input type="radio" name="arrangement" value="remote" required><span>Fully remote</span></label></li>
+              <li><label><input type="radio" name="arrangement" value="hybrid"><span>Hybrid</span></label></li>
+              <li><label><input type="radio" name="arrangement" value="onsite"><span>Fully on-site</span></label></li>
+            </ul>
+
+            <div class="conditional" id="locationDetails">
+              <div class="field">
+                <label class="field__label" for="locationCity">City &amp; expected days on-site per week</label>
+                <input id="locationCity" name="locationCity" type="text" placeholder="e.g., Boston — 2 days/week">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Equipment</legend>
+            <ul class="options">
+              <li><label><input type="radio" name="equipment" value="host-laptop"><span>Host provides laptop</span></label></li>
+              <li><label><input type="radio" name="equipment" value="own-laptop"><span>Intern uses their own</span></label></li>
+              <li><label><input type="radio" name="equipment" value="stipend"><span>Stipend for equipment</span></label></li>
+              <li><label><input type="radio" name="equipment" value="discuss-equipment"><span>Let's discuss</span></label></li>
+            </ul>
+          </fieldset>
+        </fieldset>
+
+        <!-- ============================================================
+             7. COMPENSATION
+        ============================================================ -->
+        <fieldset class="section-block" id="sec-7">
+          <legend>7 · Compensation</legend>
+          <p class="section-intro">We're direct with applicants about pay so the match is honest on both sides. Transparency here helps.</p>
+
+          <fieldset class="field" id="compTypeField">
+            <legend>Compensation type<span class="req">*</span></legend>
+            <ul class="options">
+              <li><label><input type="radio" name="compType" value="unpaid" required><span>Unpaid</span></label></li>
+              <li><label><input type="radio" name="compType" value="stipend"><span>Stipend (lump sum)</span></label></li>
+              <li><label><input type="radio" name="compType" value="hourly"><span>Hourly wage</span></label></li>
+              <li><label><input type="radio" name="compType" value="credit"><span>Academic credit only</span></label></li>
+              <li><label><input type="radio" name="compType" value="stipend-credit"><span>Stipend + academic credit</span></label></li>
+            </ul>
+
+            <div class="conditional" id="compAmountField">
+              <div class="field">
+                <label class="field__label" for="compAmount">Amount or range</label>
+                <span class="help">e.g., $3,000 lump sum, or $20–25/hr. Even a rough range helps applicants self-select.</span>
+                <input id="compAmount" name="compAmount" type="text">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Who pays?</legend>
+            <ul class="options">
+              <li><label><input type="radio" name="payer" value="host"><span>Host directly</span></label></li>
+              <li><label><input type="radio" name="payer" value="orchid"><span>Through Orchid</span></label></li>
+              <li><label><input type="radio" name="payer" value="university"><span>University / academic department</span></label></li>
+              <li><label><input type="radio" name="payer" value="other-payer"><span>Other / mixed</span></label></li>
+              <li><label><input type="radio" name="payer" value="na-payer"><span>Not applicable (unpaid)</span></label></li>
+            </ul>
+          </fieldset>
+
+          <div class="field">
+            <label class="field__label" for="travelHousing">Housing, travel, or relocation support?</label>
+            <span class="help">Especially relevant for hybrid/on-site roles. "None" is a fine answer.</span>
+            <textarea id="travelHousing" name="travelHousing"></textarea>
+          </div>
+        </fieldset>
+
+        <!-- ============================================================
+             8. INTERN PROFILE
+        ============================================================ -->
+        <fieldset class="section-block" id="sec-8">
+          <legend>8 · Intern profile you're hoping for</legend>
+          <p class="section-intro">We use this for matching, not gatekeeping. "Willing to learn" is often the right answer.</p>
+
+          <div class="field">
+            <label class="field__label" for="requiredSkills">Required skills</label>
+            <span class="help">Hard requirements only — things you can't teach in a summer.</span>
+            <textarea id="requiredSkills" name="requiredSkills"></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="niceToHave">Nice-to-have skills</label>
+            <textarea id="niceToHave" name="niceToHave"></textarea>
+          </div>
+
+          <fieldset class="field">
+            <legend>Comfort with AI coding tools (Claude Code, Copilot, etc.)</legend>
+            <ul class="options">
+              <li><label><input type="radio" name="aiComfort" value="fluent"><span>Must be fluent</span></label></li>
+              <li><label><input type="radio" name="aiComfort" value="comfortable"><span>Comfortable is great</span></label></li>
+              <li><label><input type="radio" name="aiComfort" value="willing"><span>Willing to learn — Orchid will train</span></label></li>
+              <li><label><input type="radio" name="aiComfort" value="not-required"><span>Not required</span></label></li>
+            </ul>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Class year preference (pick any that fit)</legend>
+            <ul class="options options--cols">
+              <li><label><input type="checkbox" name="classYear" value="rising-soph"><span>Rising sophomore</span></label></li>
+              <li><label><input type="checkbox" name="classYear" value="rising-junior"><span>Rising junior</span></label></li>
+              <li><label><input type="checkbox" name="classYear" value="rising-senior"><span>Rising senior</span></label></li>
+              <li><label><input type="checkbox" name="classYear" value="recent-grad"><span>Recent grad</span></label></li>
+              <li><label><input type="checkbox" name="classYear" value="masters"><span>Master's student</span></label></li>
+              <li><label><input type="checkbox" name="classYear" value="no-pref"><span>No preference</span></label></li>
+            </ul>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Mentorship style</legend>
+            <ul class="options">
+              <li><label><input type="radio" name="mentorshipStyle" value="high-touch"><span>High-touch — daily-ish syncs, lots of pairing</span></label></li>
+              <li><label><input type="radio" name="mentorshipStyle" value="standard"><span>Standard — weekly + async</span></label></li>
+              <li><label><input type="radio" name="mentorshipStyle" value="autonomous"><span>Mostly autonomous — intern drives, host reviews</span></label></li>
+            </ul>
+          </fieldset>
+        </fieldset>
+
+        <!-- ============================================================
+             9. RISK & PUBLICITY
+        ============================================================ -->
+        <fieldset class="section-block" id="sec-9">
+          <legend>9 · Risk &amp; publicity</legend>
+
+          <div class="field">
+            <label class="field__label" for="riskNotes">"What would make this go wrong?"</label>
+            <span class="help">Optional but high-value. Naming the failure modes early is the cheapest insurance you'll buy this summer.</span>
+            <textarea id="riskNotes" name="riskNotes"></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="anythingElse">Anything else we should know?</label>
+            <textarea id="anythingElse" name="anythingElse"></textarea>
+          </div>
+
+          <p class="section-intro" style="margin-top: 2rem;"><strong>Publicity &amp; promotion.</strong> Two separate consents — your call on each.</p>
+
+          <fieldset class="field">
+            <legend>Can we list this project publicly on the Orchid open-projects board <em>before</em> matching?<span class="req">*</span></legend>
+            <ul class="options">
+              <li><label><input type="radio" name="advertise" value="yes-full" required><span>Yes — full brief, with our org name</span></label></li>
+              <li><label><input type="radio" name="advertise" value="yes-anon-org"><span>Yes — but anonymize our org until a match is made</span></label></li>
+              <li><label><input type="radio" name="advertise" value="yes-summary"><span>Yes — but only a sanitized summary you draft for us to approve first</span></label></li>
+              <li><label><input type="radio" name="advertise" value="no-advertise"><span>No — keep it internal; only show vetted intern candidates</span></label></li>
+            </ul>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>After the project wraps, can Orchid feature this work in promotional materials?<span class="req">*</span></legend>
+            <span class="help">Case studies, website, podcast, social, grant applications.</span>
+            <ul class="options">
+              <li><label><input type="radio" name="promo" value="yes-full" required><span>Yes — full case study, named, with intern + host quotes welcome</span></label></li>
+              <li><label><input type="radio" name="promo" value="yes-review"><span>Yes — but require our review before publishing</span></label></li>
+              <li><label><input type="radio" name="promo" value="yes-anon"><span>Yes — anonymized only (no org or intern name)</span></label></li>
+              <li><label><input type="radio" name="promo" value="no-promo"><span>No — please don't reference this project externally</span></label></li>
+            </ul>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>If yes to either above — what assets are okay to share?</legend>
+            <ul class="options options--cols">
+              <li><label><input type="checkbox" name="assets" value="title"><span>Project title</span></label></li>
+              <li><label><input type="checkbox" name="assets" value="org-name"><span>Org name</span></label></li>
+              <li><label><input type="checkbox" name="assets" value="metrics"><span>Outcome metrics</span></label></li>
+              <li><label><input type="checkbox" name="assets" value="repo"><span>Code / repo link</span></label></li>
+              <li><label><input type="checkbox" name="assets" value="screenshots"><span>Screenshots / demos</span></label></li>
+              <li><label><input type="checkbox" name="assets" value="writeup"><span>Intern's writeup</span></label></li>
+              <li><label><input type="checkbox" name="assets" value="quote"><span>Host quote</span></label></li>
+              <li><label><input type="checkbox" name="assets" value="photos"><span>Photos</span></label></li>
+            </ul>
+          </fieldset>
+
+          <div class="field">
+            <label class="field__label" for="offLimits">Off-limits topics or details, even with consent above?</label>
+            <textarea id="offLimits" name="offLimits"></textarea>
+          </div>
+        </fieldset>
+
+        <!-- ============================================================
+             SUBMIT
+        ============================================================ -->
+        <div class="form-submit">
+          <p class="form-note">When you submit, we'll read the brief within a week and email you to schedule a 30-minute sharpening call. Nothing is published or shared until you've reviewed and approved.</p>
+          <div class="btn-group">
+            <button type="submit" class="btn btn--primary arrow">Submit Problem Brief</button>
+            <a href="for-hosts.html" class="btn btn--secondary">Back to host overview</a>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <span>&copy; 2026 Orchid Initiative · A sister program of the Orchid Initiative.</span>
+    <div>
+      <a href="https://github.com/orchid-initiative">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:hello@orchid-initiative.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky header shadow
+  const header = document.querySelector('.site-header');
+  const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Conditional reveal: location details when hybrid/onsite
+  const arrangementInputs = document.querySelectorAll('input[name="arrangement"]');
+  const locationDetails = document.getElementById('locationDetails');
+  arrangementInputs.forEach(el => {
+    el.addEventListener('change', () => {
+      const v = document.querySelector('input[name="arrangement"]:checked')?.value;
+      locationDetails.classList.toggle('is-visible', v === 'hybrid' || v === 'onsite');
+    });
+  });
+
+  // Conditional reveal: comp amount when stipend/hourly/mixed
+  const compInputs = document.querySelectorAll('input[name="compType"]');
+  const compAmountField = document.getElementById('compAmountField');
+  compInputs.forEach(el => {
+    el.addEventListener('change', () => {
+      const v = document.querySelector('input[name="compType"]:checked')?.value;
+      compAmountField.classList.toggle('is-visible', v === 'stipend' || v === 'hourly' || v === 'stipend-credit');
+    });
+  });
+
+  // Word counter for the brief
+  const brief = document.getElementById('brief');
+  const briefCount = document.getElementById('briefCount');
+  const updateCount = () => {
+    const words = brief.value.trim().split(/\s+/).filter(Boolean).length;
+    briefCount.textContent = words;
+  };
+  brief.addEventListener('input', updateCount);
+
+  // Active section highlight in TOC
+  const tocLinks = document.querySelectorAll('.toc a');
+  const sections = Array.from(document.querySelectorAll('.section-block'));
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        tocLinks.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => observer.observe(s));
+
+  // Submit handler — preview only
+  document.getElementById('hostBrief').addEventListener('submit', e => {
+    e.preventDefault();
+    alert("Preview mode — submissions aren't wired up yet. When this is live we'll route to a Google Form (or equivalent) and email you within a week to schedule the sharpening call.");
+  });
+</script>
+
+</body>
+</html>
