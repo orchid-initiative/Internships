@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Orchid Initiative</title>
+<meta name="description" content="How the Orchid Initiative collects, uses, and protects your personal information.">
+<link rel="icon" type="image/avif" href="orchid.avif">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .policy-body {
+    max-width: var(--max-w-prose);
+  }
+  .policy-body h2 {
+    font-size: var(--fs-lg);
+    font-weight: 500;
+    margin-top: 2.75rem;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.01em;
+  }
+  .policy-body h2:first-child { margin-top: 0; }
+  .policy-body p {
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+  }
+  .policy-meta {
+    font-size: var(--fs-sm);
+    color: var(--ink-muted);
+    margin-bottom: 2.5rem;
+  }
+  .policy-body a {
+    color: var(--accent-deep);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  }
+  .policy-body a:hover { text-decoration-color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <img class="logo-mark" src="orchid.avif" alt="Orchid" width="28" height="28" />
+      <span>Orchid Initiative</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="internships/">Internships</a></li>
+        <li><a href="podcast.html" class="hide-mobile">Podcast</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="hide-mobile">Contact</a></li>
+        <li><a href="https://givebutter.com/orchid-initiative-general-donations-7mqkid" class="btn btn--primary">Donate</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" style="padding-bottom: 1rem;">
+    <div class="container">
+      <div class="hero__inner">
+        <span class="eyebrow">Privacy Policy</span>
+        <h1>Your privacy matters.</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- POLICY BODY -->
+  <section class="section" style="padding-top: 1rem;">
+    <div class="container">
+      <article class="policy-body">
+
+        <p class="policy-meta">Last updated: May 4, 2026</p>
+
+        <h2>Information Collection</h2>
+        <p>We do not collect any personal information from you unless you voluntarily submit it through our contact form. When you submit contact information, we may receive your name, email address, and any additional details you choose to provide.</p>
+
+        <h2>Cookies</h2>
+        <p>Our website uses cookies for essential purposes such as security, system monitoring, and functionality. These tools enhance your browsing experience and enable core website features.</p>
+
+        <h2>Information Use</h2>
+        <p>Any personal information you provide through our contact form will be used solely to respond to your inquiries or requests. We do not share, sell, or distribute your data to third parties.</p>
+
+        <h2>Data Security</h2>
+        <p>We take appropriate measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction.</p>
+
+        <h2>Your Rights</h2>
+        <p>You may request access to your personal information and have the right to update, correct, or delete inaccuracies. Contact us using the information below to exercise these rights or to ask questions about this policy.</p>
+
+        <h2>Changes to This Privacy Policy</h2>
+        <p>We reserve the right to update or modify this Privacy Policy at any time. Changes take effect immediately upon posting to this page.</p>
+
+        <h2>Contact Us</h2>
+        <p>Direct privacy inquiries to <a href="mailto:hello@orchid-initiative.com">hello@orchid-initiative.com</a>.</p>
+
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <span>&copy; 2026 Orchid Initiative.</span>
+    <div>
+      <a href="https://github.com/orchid-initiative">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="http://rileeki.slack.com">Slack</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/company/91141234">LinkedIn</a>
+      &nbsp;·&nbsp;
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.querySelector('.site-header');
+  const toggle = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+</script>
+
+</body>
+</html>
