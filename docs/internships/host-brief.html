@@ -221,7 +221,7 @@
       <div class="hero__inner">
         <span class="eyebrow">Host Problem Brief</span>
         <h1>Tell us about your project.</h1>
-        <p class="lede">About <strong>20 minutes</strong> of focused thinking. We'll read it within a week and follow up with a 30-minute sharpening call. Most fields are quick picks; a couple ask for real writing — those are the ones that matter most.</p>
+        <p class="lede">About <strong>20 minutes</strong> of focused thinking. We'll read it within a week and follow up with a 30-minute sharpening call.</p>
       </div>
     </div>
   </section>
@@ -237,7 +237,7 @@
           <li><a href="#sec-2">2 · Project at a glance</a></li>
           <li><a href="#sec-3">3 · Domain &amp; data</a></li>
           <li><a href="#sec-4">4 · Tech stack</a></li>
-          <li><a href="#sec-5">5 · Time &amp; duration</a></li>
+          <li><a href="#sec-5">5 · Time, roles &amp; duration</a></li>
           <li><a href="#sec-6">6 · Location</a></li>
           <li><a href="#sec-7">7 · Compensation</a></li>
           <li><a href="#sec-8">8 · Intern profile</a></li>
@@ -253,7 +253,7 @@
         ============================================================ -->
         <fieldset class="section-block" id="sec-1">
           <legend>1 · About you</legend>
-          <p class="section-intro">Just enough to follow up. We don't share contact info publicly without asking.</p>
+          <p class="section-intro">Just enough to follow up. The person filling this out is the project's <strong>Sponsor</strong> &mdash; see Section 5 for the Mentor role. We don't share contact info publicly without asking.</p>
 
           <div class="field">
             <label class="field__label" for="name">Your name<span class="req">*</span></label>
@@ -294,6 +294,17 @@
             </ul>
           </fieldset>
 
+          <fieldset class="field">
+            <legend>Have you hosted an intern before?</legend>
+            <span class="help">Helps us calibrate how much hand-holding to offer on the program-rhythm side.</span>
+            <ul class="options">
+              <li><label><input type="radio" name="priorHosting" value="none"><span>No, this is our first time</span></label></li>
+              <li><label><input type="radio" name="priorHosting" value="few"><span>One or two before</span></label></li>
+              <li><label><input type="radio" name="priorHosting" value="many"><span>Several &mdash; we have a rhythm</span></label></li>
+              <li><label><input type="radio" name="priorHosting" value="standard"><span>Many &mdash; interns are a standard part of our team</span></label></li>
+            </ul>
+          </fieldset>
+
           <div class="field">
             <label class="field__label" for="referral">How did you hear about Orchid?</label>
             <input id="referral" name="referral" type="text" placeholder="A person, a podcast, a search…">
@@ -305,7 +316,7 @@
         ============================================================ -->
         <fieldset class="section-block" id="sec-2">
           <legend>2 · Project at a glance</legend>
-          <p class="section-intro">The single biggest predictor of a strong summer is a clear brief. Don't worry about polish — we'll sharpen it on the call.</p>
+          <p class="section-intro">A clear brief is the strongest predictor of a strong summer. Don't worry about polish &mdash; we'll sharpen it on the call.</p>
 
           <div class="field">
             <label class="field__label" for="title">Project title<span class="req">*</span></label>
@@ -483,21 +494,58 @@
              5. TIME & DURATION
         ============================================================ -->
         <fieldset class="section-block" id="sec-5">
-          <legend>5 · Time &amp; duration</legend>
-          <p class="section-intro">We design around the time you actually have, not the time you wish you had.</p>
+          <legend>5 · Time, roles &amp; duration</legend>
+          <p class="section-intro">We design around two host-side roles &mdash; a <strong>Sponsor</strong> (project owner) and a <strong>Mentor</strong> (day-to-day technical contact) &mdash; plus the time each can commit. For most projects the mentor is naturally someone on your team or in your lab; for smaller, one-off projects, Orchid can match an outside mentor.</p>
 
           <fieldset class="field">
-            <legend>How much host time can you commit per week?<span class="req">*</span></legend>
+            <legend>Sponsor time per week<span class="req">*</span></legend>
+            <span class="help">The project owner's time &mdash; reading the digest, async PR reviews, structured touchpoints.</span>
             <ul class="options">
-              <li><label><input type="radio" name="hostTime" value="lt-30" required><span>30 minutes or less — the Orchid baseline</span></label></li>
-              <li><label><input type="radio" name="hostTime" value="30-60"><span>30–60 minutes</span></label></li>
-              <li><label><input type="radio" name="hostTime" value="60-120"><span>1–2 hours</span></label></li>
-              <li><label><input type="radio" name="hostTime" value="2plus"><span>2+ hours — high-touch mentorship welcome</span></label></li>
+              <li><label><input type="radio" name="sponsorTime" value="lt-30" required><span>30 minutes or less</span></label></li>
+              <li><label><input type="radio" name="sponsorTime" value="30-60"><span>30&ndash;60 minutes</span></label></li>
+              <li><label><input type="radio" name="sponsorTime" value="60-120"><span>1&ndash;2 hours</span></label></li>
+              <li><label><input type="radio" name="sponsorTime" value="2plus"><span>2+ hours</span></label></li>
             </ul>
           </fieldset>
 
+          <fieldset class="field" id="mentorSourceField">
+            <legend>Who will the day-to-day Mentor be?<span class="req">*</span></legend>
+            <span class="help">The person who works closely with the intern &mdash; weekly 1:1, ad-hoc questions, routine PR reviews. Roughly 1&ndash;3 hours a week.</span>
+            <ul class="options">
+              <li><label><input type="radio" name="mentorSource" value="internal" required><span>Internal &mdash; someone on our team or in our lab</span></label></li>
+              <li><label><input type="radio" name="mentorSource" value="orchid"><span>From Orchid's mentor network &mdash; we don't have someone available</span></label></li>
+              <li><label><input type="radio" name="mentorSource" value="discuss"><span>Let's discuss on the sharpening call</span></label></li>
+            </ul>
+
+            <div class="conditional" id="internalMentorDetails">
+              <div class="field">
+                <label class="field__label" for="mentorName">Mentor's name</label>
+                <input id="mentorName" name="mentorName" type="text">
+              </div>
+              <div class="field">
+                <label class="field__label" for="mentorEmail">Mentor's email</label>
+                <input id="mentorEmail" name="mentorEmail" type="email">
+              </div>
+              <fieldset class="field">
+                <legend>Mentor time available per week</legend>
+                <ul class="options">
+                  <li><label><input type="radio" name="mentorTime" value="1-2"><span>1&ndash;2 hours</span></label></li>
+                  <li><label><input type="radio" name="mentorTime" value="2-3"><span>2&ndash;3 hours</span></label></li>
+                  <li><label><input type="radio" name="mentorTime" value="3plus"><span>3+ hours</span></label></li>
+                </ul>
+              </fieldset>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label class="field__label" for="mentorNotes">Anything specific you'd want from a mentor (yours or ours)?</label>
+            <span class="help">Domain expertise, mentoring style, time-zone overlap, anything else.</span>
+            <textarea id="mentorNotes" name="mentorNotes"></textarea>
+          </div>
+
           <fieldset class="field">
-            <legend>Response time you can commit to for blockers<span class="req">*</span></legend>
+            <legend>Sponsor response time for escalated questions<span class="req">*</span></legend>
+            <span class="help">Day-to-day questions go to the mentor. This is for the things that need the project owner.</span>
             <ul class="options">
               <li><label><input type="radio" name="responseTime" value="same-day" required><span>Same day</span></label></li>
               <li><label><input type="radio" name="responseTime" value="24h"><span>Within 24 hours</span></label></li>
@@ -670,14 +718,6 @@
             </ul>
           </fieldset>
 
-          <fieldset class="field">
-            <legend>Mentorship style</legend>
-            <ul class="options">
-              <li><label><input type="radio" name="mentorshipStyle" value="high-touch"><span>High-touch — daily-ish syncs, lots of pairing</span></label></li>
-              <li><label><input type="radio" name="mentorshipStyle" value="standard"><span>Standard — weekly + async</span></label></li>
-              <li><label><input type="radio" name="mentorshipStyle" value="autonomous"><span>Mostly autonomous — intern drives, host reviews</span></label></li>
-            </ul>
-          </fieldset>
         </fieldset>
 
         <!-- ============================================================
@@ -688,7 +728,7 @@
 
           <div class="field">
             <label class="field__label" for="riskNotes">"What would make this go wrong?"</label>
-            <span class="help">Optional but high-value. Naming the failure modes early is the cheapest insurance you'll buy this summer.</span>
+            <span class="help">Optional but high-value. Naming the failure modes early is good insurance against late-summer surprises.</span>
             <textarea id="riskNotes" name="riskNotes"></textarea>
           </div>
 
@@ -781,6 +821,16 @@
     el.addEventListener('change', () => {
       const v = document.querySelector('input[name="arrangement"]:checked')?.value;
       locationDetails.classList.toggle('is-visible', v === 'hybrid' || v === 'onsite');
+    });
+  });
+
+  // Conditional reveal: internal mentor details when "internal" selected
+  const mentorInputs = document.querySelectorAll('input[name="mentorSource"]');
+  const internalMentorDetails = document.getElementById('internalMentorDetails');
+  mentorInputs.forEach(el => {
+    el.addEventListener('change', () => {
+      const v = document.querySelector('input[name="mentorSource"]:checked')?.value;
+      internalMentorDetails.classList.toggle('is-visible', v === 'internal');
     });
   });
 
